@@ -1,4 +1,4 @@
-console.info('defaul.js loaded.');
+console.info('default.js loaded.');
 
 window.selectnav = function() {
     return function(p, q) {
