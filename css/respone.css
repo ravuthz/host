@@ -71,6 +71,7 @@ Responsive styles
 
 @media screen and (max-width: 768px) {
     #adajaxmenu li {
+        text-align: center;
         width: 100%;
         background-color: #33363B;
     }
