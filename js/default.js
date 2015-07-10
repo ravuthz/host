@@ -3,12 +3,19 @@ console.info('default.js loaded.');
 
 ;(function($) {
 
-    $(function(){
+    $(document).ready(function($) {
         $('#adajaxmenu .menu a').on('click', function(){
             alert(1);
             $('#adajaxmenu li').show();
         });
     });
+
+    // $(function(){
+    //     $('#adajaxmenu .menu a').on('click', function(){
+    //         alert(1);
+    //         $('#adajaxmenu li').show();
+    //     });
+    // });
 
     
     /* BackToTop button */
