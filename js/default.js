@@ -3,19 +3,19 @@ console.info('default.js loaded.');
 
 ;(function($) {
 
-    $(document).ready(function($) {
-        $('#adajaxmenu .menu a').on('click', function(){
-            alert(1);
-            $('#adajaxmenu li').show();
-        });
-    });
-
-    // $(function(){
+    // $(document).ready(function($) {
     //     $('#adajaxmenu .menu a').on('click', function(){
     //         alert(1);
     //         $('#adajaxmenu li').show();
     //     });
     // });
+
+    $(function(){
+        $('#adajaxmenu .menu a').on('click', function(){
+            alert(1);
+            $('#adajaxmenu li').show();
+        });
+    });
 
     
     /* BackToTop button */
@@ -137,9 +137,6 @@ console.info('default.js loaded.');
     //     tag += "</ul>";
     //     $("#blogPager2").html(tag);
     // });
-    
-   /search?updated-max=2014-11-02T19%3A10%3A00%2B07%3A00&max-results=9
-   
     
     // var self = $(this), //button
     //     content = $('.content'); 
