@@ -3,6 +3,12 @@ console.info('default.js loaded.');
 
 ;(function($) {
 
+    $(function(){
+        $('#adajaxmenu .menu').on('click', function(){
+            $('#adajaxmenu li').fadeIn('300');
+        });
+    });
+
     
     /* BackToTop button */
     $("a#back-to-top").click(function(){
@@ -124,7 +130,7 @@ console.info('default.js loaded.');
     //     $("#blogPager2").html(tag);
     // });
     
-   
+   /search?updated-max=2014-11-02T19%3A10%3A00%2B07%3A00&max-results=9
    
     
     // var self = $(this), //button
