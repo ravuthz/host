@@ -1378,7 +1378,7 @@ Responsive styles
     } */
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 480px) {
     .post {
         width: 100% !important;
     }
@@ -1418,6 +1418,12 @@ Responsive styles
 }
 
 @media screen and (max-width: 320px) {
+    .post {
+        width: 100% !important;
+    }
+    .sidebar .widget {
+        width: 100% !important;
+    }
     .footer {
         width: 100%;
     }
