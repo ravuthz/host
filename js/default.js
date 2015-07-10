@@ -143,7 +143,7 @@ window.selectnav = function() {
                             break;
                         }
                     }
-                    tagl+= "<li><a href='" + postLink + "'>" + postTitle + "</a></li>";
+                    tag += "<li><a href='" + postLink + "'>" + postTitle + "</a></li>";
                 }
                 tag += "</ul>";
                 $("#recentpostbreaking").html(tag);
