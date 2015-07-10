@@ -1,3 +1,5 @@
+alert('js in github ok');
+
 window.selectnav = function() {
     return function(p, q) {
         var a, h = function(b) {
