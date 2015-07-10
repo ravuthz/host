@@ -79,28 +79,28 @@ console.info('default.js loaded.');
     
     
     /* list posts with pagination */
-    var currentPage = 1, rowsPerPage = 9,
-        url = 'http://www.blogger.com/feeds/5615873936899142487/posts/default?alt=json';
+    // var currentPage = 1, rowsPerPage = 9,
+    //     url = 'http://www.blogger.com/feeds/5615873936899142487/posts/default?alt=json';
 
-    ajaxGet(url + '&max-results=' + rowsPerPage + '&start-index=' + currentPage,
-    function(data){
-        pagePostHtml(data.feed.entry, '#blogPost2');
-    });
+    // ajaxGet(url + '&max-results=' + rowsPerPage + '&start-index=' + currentPage,
+    // function(data){
+    //     pagePostHtml(data.feed.entry, '#blogPost2');
+    // });
     
-    $(document).on('click', '.item', function(e){
-        e.preventDefault();
-        var id = $(this).attr('id');
-        var post = get(id);
+    // $(document).on('click', '.item', function(e){
+    //     e.preventDefault();
+    //     var id = $(this).attr('id');
+    //     var post = get(id);
         
-        var tag = '<article class="article">'
-            tag += '<header><h3>' + post.title.$t + '</h3></header>'
-            tag += '<main><img src="" alt="">'
-            tag += '<p>' + post.content.$t + '</p></main>'
-            tag += '<footer></footer></article>';
-        // $("#postOut").append(tag);
-        $("#postOut").html(tag);
-        $("#postOut").bPopup();
-    });
+    //     var tag = '<article class="article">'
+    //         tag += '<header><h3>' + post.title.$t + '</h3></header>'
+    //         tag += '<main><img src="" alt="">'
+    //         tag += '<p>' + post.content.$t + '</p></main>'
+    //         tag += '<footer></footer></article>';
+    //     // $("#postOut").append(tag);
+    //     $("#postOut").html(tag);
+    //     $("#postOut").bPopup();
+    // });
     
     function set(name, value){
         localStorage.setItem(name, JSON.stringify(value));
