@@ -4,9 +4,7 @@ console.info('default.js loaded.');
 ;(function($) {
     $(function(){
         $('#adajaxmenu .menu a').on('click', function(){
-            $('#adajaxmenu li').slideToggle('fast', function(){
-                $('#adajaxmenu .menu').show();
-            });
+            $('#adajaxmenu li:not(.menu)').slideToggle('slow');
         });
     });
 
