@@ -5,6 +5,7 @@ console.info('default.js loaded.');
 
     $(function(){
         $('#adajaxmenu .menu a').on('click', function(){
+            alert(1);
             $('#adajaxmenu li').show();
         });
     });
