@@ -1,79 +1,9 @@
 console.info('default.js loaded.');
 
-window.selectnav = function() {
-    return function(p, q) {
-        var a, h = function(b) {
-                var c;
-                b || (b = window.event);
-                b.target ? c = b.target : b.srcElement && (c = b.srcElement);
-                3 === c.nodeType && (c = c.parentNode);
-                c.value && (window.location.href = c.value)
-            }, k = function(b) {
-                b = b.nodeName.toLowerCase();
-                return "ul" === b || "ol" === b
-            }, l = function(b) {
-                for (var c = 1; document.getElementById("selectnav" + c); c++) {}
-                return b ? "selectnav" + c : "selectnav" + (c - 1)
-            }, n = function(b) {
-                g++;
-                var c = b.children.length,
-                    a = "",
-                    d = "",
-                    f = g - 1;
-                if (c) {
-                    if (f) {
-                        for (; f--;) {
-                            d += r
-                        }
-                        d += " "
-                    }
-                    for (f = 0; f < c; f++) {
-                        var e = b.children[f].children[0];
-                        if ("undefined" !== typeof e) {
-                            var h = e.innerText || e.textContent,
-                                i = "";
-                            j && (i = -1 !== e.className.search(j) || -1 !== e.parentElement.className.search(j) ? m : "");
-                            s && !i && (i = e.href === document.URL ? m : "");
-                            a += '<option value="' + e.href + '" ' + i + ">" + d + h + "</option>";
-                            t && (e = b.children[f].children[1]) && k(e) && (a += n(e))
-                        }
-                    }
-                    1 === g && o && (a = '<option value="">' + o + "</option>" + a);
-                    1 === g && (a = '<select class="selectnav" id="' + l(!0) + '">' + a + "</select>");
-                    g--;
-                    return a
-                }
-            };
-        if ((a = document.getElementById(p)) && k(a)) {
-            document.documentElement.className += " js";
-            var d = q || {}, j = d.activeclass || "active1",
-                s = "boolean" === typeof d.autoselect ? d.autoselect : !0,
-                t = "boolean" === typeof d.nested ? d.nested : !0,
-                r = d.indent || "\u2192",
-                o = d.label || "- Navigation -",
-                g = 0,
-                m = " selected ";
-            a.insertAdjacentHTML("afterend", n(a));
-            a = document.getElementById(l());
-            a.addEventListener && a.addEventListener("change", h);
-            a.attachEvent && a.attachEvent("onchange", h)
-        }
-    }
-}();
-(jQuery);
 
-
-/* document ready */
 ;(function($) {
 
-    /* Menu to drop down */
-    // selectnav('adajaxmenu', {
-    //     label: 'Select Here ',
-    //     nested: true,
-    //     autoselect: false,
-    //     indent: '-'
-    // });
-
+    
     /* BackToTop button */
     $("a#back-to-top").click(function(){
         $("html, body").animate({
@@ -83,7 +13,7 @@ window.selectnav = function() {
     });
     
     
-/* Breaking News Script */
+    /* Breaking News Script */
     // var url_blog = 'http://ravuthz.blogspot.com/', numpostx = 20; // Maximum Post
     // var url = url_blog + '/feeds/posts/default?alt=json&max-results=' + numpostx + '&orderby=published';
 
@@ -117,11 +47,10 @@ window.selectnav = function() {
         } else {
             $('#recentpostbreaking').html('<span>No Post!</span>');
         }
-    },
-    function(){
+    }, function(){
         $('#recentpostbreaking').html('<strong>Error Loading Feed!</strong>');
     });
-/* //Breaking News Script */
+    /* //Breaking News Script */
 
 
 
@@ -175,25 +104,25 @@ window.selectnav = function() {
         return JSON.parse(localStorage.getItem(name));
     }
     
-    ajaxGet(url + '&max-results=999', 
-    function(data){
-        var totalRows = data.feed.entry.length;
-        var totalPages = totalRows > rowsPerPage ? (Math.ceil(totalRows / rowsPerPage)) : 1; 
+    // ajaxGet(url + '&max-results=999', 
+    // function(data){
+    //     var totalRows = data.feed.entry.length;
+    //     var totalPages = totalRows > rowsPerPage ? (Math.ceil(totalRows / rowsPerPage)) : 1; 
         
-        var tag = "";
-        tag += "<ul class='pagination'>";
-        tag += "<li><a href='javascript:' onclick='gotopage(1)'> << </a></li>";
-        for(var i=1; i<=totalPages; i++){
-            if(currentPage == i){
-                tag += "<li><a href='javascript:' class='page on' onclick='gotopage("+i+")'>" + i + "</a></li>";
-            } else {
-                tag += "<li><a href='javascript:' class='page' onclick='gotopage("+i+")'>" + i + "</a></li>";
-            }
-        }
-        tag += "<li><a href='javascript:' onclick='gotopage(" + totalPages + ")'> >> </a></li>";
-        tag += "</ul>";
-        $("#blogPager2").html(tag);
-    });
+    //     var tag = "";
+    //     tag += "<ul class='pagination'>";
+    //     tag += "<li><a href='javascript:' onclick='gotopage(1)'> << </a></li>";
+    //     for(var i=1; i<=totalPages; i++){
+    //         if(currentPage == i){
+    //             tag += "<li><a href='javascript:' class='page on' onclick='gotopage("+i+")'>" + i + "</a></li>";
+    //         } else {
+    //             tag += "<li><a href='javascript:' class='page' onclick='gotopage("+i+")'>" + i + "</a></li>";
+    //         }
+    //     }
+    //     tag += "<li><a href='javascript:' onclick='gotopage(" + totalPages + ")'> >> </a></li>";
+    //     tag += "</ul>";
+    //     $("#blogPager2").html(tag);
+    // });
     
    
    
@@ -290,13 +219,7 @@ window.selectnav = function() {
                 + "</div>";
         });
     }
-
-
-
-/* bPopup, iPopup */
-
-
-    $(function() {
+    $(function() { /* document ready */
         // $("#iFrame").attr('src', 'http://ravuthz.blogspot.com/p/about-me.html');
         
         
@@ -306,22 +229,9 @@ window.selectnav = function() {
             // $('#iPopup').bPopup();
             $('#postOut').bPopup();
         });
-    });
+    }); /* //document ready */
     
+
+
+
 })(jQuery);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
