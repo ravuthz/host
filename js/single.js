@@ -1,6 +1,6 @@
 console.info('single.js loaded.');
 
-(function(){
+;(function($){
 	$(function(){
 		$('.post').css('height', 'auto');
 
@@ -8,4 +8,4 @@ console.info('single.js loaded.');
 
 
 
-})();
+})(jQuery, window);
