@@ -21,7 +21,7 @@ console.info('default.js loaded.');
     /* Breaking News Script */
     // var url_blog = 'http://ravuthz.blogspot.com/', numpostx = 20; // Maximum Post
     // var url = url_blog + '/feeds/posts/default?alt=json&max-results=' + numpostx + '&orderby=published';
-
+    // /feeds/posts/summary?alt=json-in-script&amp;callback=showpageCount&amp;max-results=99999
     var blog_id = '5615873936899142487', max_posts = 40;
     var url = 'https://www.blogger.com/feeds/' + blog_id +'/posts/default?alt=json&max-results=' + max_posts + '&orderby=published';
     

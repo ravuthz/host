@@ -19,14 +19,36 @@
 	https://cdn.rawgit.com/ravuthz/host/master/js/default.js
 
 -->
-	<script type="text/javascript" src="https://rawgit.com/ravuthz/host/master/js/default.js"></script>
 	<script type="text/javascript" src="https://rawgit.com/ravuthz/host/master/js/jquery.bpopup.js"></script>
+	<script type="text/javascript" src="https://rawgit.com/ravuthz/host/master/js/compression.js"></script>
+	<script type="text/javascript" src="https://rawgit.com/ravuthz/host/master/js/default.js"></script>
 
 	<b:skin><[!CDATA[ /* the skin at default.css */ ]]></b:skin>
 </head>
 <body>
 
+<script type="text/javascript">
+	//<![CDATA[  
+		(function(){
+			var scripts = ['compression', 'default', 'jquery.bpopup'];
+			var located = "https://rawgit.com/ravuthz/host/master/js/";
 
+			function loadScript(url){
+				var date = new Date(),
+					scripts = document.createElement("script");
+				
+				scripts.type = "text/javascript";
+				scripts.src = url + '.js?' + date.getUTCMilliseconds();
+				document.head.appendChild(scripts);
+			}
+
+			for(var i=0; i<scripts.length; i++){
+				loadScript(located + scripts[i]);
+			}
+			console.log('loaded all scripts completed.');
+		})();
+	//]]>
+</script>
 
 </body>
 </html>

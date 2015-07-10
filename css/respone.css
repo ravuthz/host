@@ -1,14 +1,21 @@
 /*****************************************
 Responsive styles
 ******************************************/
-.main-wrapper { width: 100%; }
-#content, .sidebar-wrapper {
-        margin: 0;
-        padding: 0;
-    }
+
+.main-wrapper {
+    width: 100%;
+}
+
+#content,
+.sidebar-wrapper {
+    margin: 0;
+    padding: 0;
+}
+
 .post {
     height: auto;
 }
+
 .menu {
     display: none;
 }
@@ -24,7 +31,7 @@ Responsive styles
 
 @media screen and (max-width: 1024px) {
     #content {
-       width:70%;
+        width: 70%;
     }
     .sidebar-wrapper {
         width: 30%;
@@ -32,10 +39,11 @@ Responsive styles
 }
 
 @media screen and (max-width: 960px) {
-    #content, .sidebar-wrapper {
+    #content,
+    .sidebar-wrapper {
         width: 100%;
     }
-/*         .ct-wrapper {
+    /*         .ct-wrapper {
         padding: 0 15px;
     }
     .main-wrapper,
@@ -73,11 +81,11 @@ Responsive styles
 }
 
 @media screen and (max-width: 768px) {
-    #adajaxmenu li {  
+    #adajaxmenu li {
         width: 100%;
         background-color: #33363B;
     }
-    #adajaxmenu li:first-child {
+    #adajaxmenu .menu {
         display: block;
     }
     #adajaxmenu li {
@@ -89,33 +97,26 @@ Responsive styles
     #adajaxmenu li ul {
         display: none;
     }
-    #adajaxmenu .menu {
-        display: block;
-    }
     .post {
         width: 50% !important;
+        ;
     }
     .sidebar .widget {
         float: left;
         margin: 0;
         padding: 0;
-        width: 50% !important;
+        width: 100% !important;
     }
-    /*     #header p.description {
+    #header p.description {
         margin: 0;
     }
     #comment-editor {
         margin: 10px;
     }
-    .footer {
-        width: 100%;
-        clear: both;
-    }
     #content {
-        float: right;
-        width: 93%;
+        width: 100%;
     }
-    .header-inner-wrap {
+    /*     .header-inner-wrap {
         float: none
     }
     body > div.header-wrapper > div > div.banner {
@@ -130,10 +131,15 @@ Responsive styles
     #share-buttons {
         width: 50%;
     } */
+    
+    .footer {
+        width: 100%;
+        clear: both;
+    }
 }
 
 @media screen and (max-width: 620px) {
-/*     #header img {
+    #header img {
         width: 100%;
     }
     .opt-in .inner .ct-wrapper {
@@ -159,7 +165,7 @@ Responsive styles
     }
     .post-body {
         margin-top: 4.5em
-    } */
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -169,18 +175,14 @@ Responsive styles
     .sidebar .widget {
         width: 100% !important;
     }
-    
-    /*     .entry-image {
+    .entry-image {
         width: 100%;
-        height: 160px;
+        min-height: 180px;
+        max-height: 270px;
         background-color: #999;
     }
     #share-buttons {
         width: 50%;
-    }
-    #content {
-        float: right;
-        width: 90%;
     }
     #header h1 {
         font-size: 3rem!important
@@ -198,7 +200,7 @@ Responsive styles
     }
     .post-labels {
         display: none;
-    } */
+    }
 }
 
 @media screen and (max-width: 320px) {
@@ -586,39 +588,4 @@ li.search-form .searchsubmit:hover {
 
 .pad {
     padding: 20px 30px 40px;
-}
-/* responesive select nav */
-
-@media only screen and (max-width: 1024px) {
-    ul#adajaxmenu li {
-        /* display: none; */
-    }
-    #adajaxmenu {
-        height: 28px;
-        margin: 0 auto -23px;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    ul#adajaxmenu li {
-        /* display: none; */
-    }
-}
-
-@media only screen and (max-width: 480px) {
-    ul#adajaxmenu li {
-        /* display: none; */
-    }
-}
-
-@media only screen and (max-width: 320px) {}
-/* post img thumnail */
-
-.entry-image img {
-    max-width: 100%;
-    width: 100%;
-}
-
-.entry-container {
-    display: none;
 }

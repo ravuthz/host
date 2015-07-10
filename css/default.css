@@ -1299,7 +1299,7 @@ body > div.header-wrapper > div > div.banner {
 
 /* Snow falling for Blogger
 ----------------------------------------------- */
-/*@keyframes snow {
+@keyframes snow {
 0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
 100% {background-position: 500px 1000px, 400px 400px, 300px 300px;}
 }
@@ -1317,7 +1317,7 @@ body > div.header-wrapper > div > div.banner {
 @-ms-keyframes snow {
 0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
 100% {background-position: 500px 1000px, 400px 400px, 300px 300px;}
-}*/
+}
 
 #falling-snow {
 background-image: url(http://4.bp.blogspot.com/-26HXwn0tlWA/UaJZYbdbDnI/AAAAAAAADfA/AeiBdAIR0zU/s1600/snow.png), url(http://4.bp.blogspot.com/-8RALuvldFh8/UaJZY1tUptI/AAAAAAAADfM/rIaHhS2A4yQ/s1600/snow3.png), url(http://4.bp.blogspot.com/--AYxx7PegOc/UaJZYvy9wVI/AAAAAAAADfE/0Lp5NLrudxc/s1600/snow2.png);

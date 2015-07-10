@@ -1300,5 +1300,48 @@ function showrecentposts1(json){j=(showRandomImg)?Math.floor((imgr.length+1)*Mat
 function showrecentposts6(json){j=(showRandomImg)?Math.floor((imgr.length+1)*Math.random()):0;img=new Array();document.write('<ul>');for(var i=0;i<numposts6;i++){var entry=json.feed.entry[i];var posttitle=entry.title.$t;var pcm;var posturl;if(i==json.feed.entry.length)break;for(var k=0;k<entry.link.length;k++){if(entry.link[k].rel=='alternate'){posturl=entry.link[k].href;break}}for(var k=0;k<entry.link.length;k++){if(entry.link[k].rel=='replies'&&entry.link[k].type=='text/html'){pcm=entry.link[k].title.split(" ")[0];break}}if("content"in entry){var postcontent=entry.content.$t}else if("summary"in entry){var postcontent=entry.summary.$t}else var postcontent="";postdate=entry.published.$t;if(j>imgr.length-1)j=0;img[i]=imgr[j];s=postcontent;a=s.indexOf("<img");b=s.indexOf("src=\"",a);c=s.indexOf("\"",b+5);d=s.substr(b+5,c-b-5);if((a!=-1)&&(b!=-1)&&(c!=-1)&&(d!=""))img[i]=d;var month=[1,2,3,4,5,6,7,8,9,10,11,12];var month2=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];var day=postdate.split("-")[2].substring(0,2);var m=postdate.split("-")[1];var y=postdate.split("-")[0];for(var u2=0;u2<month.length;u2++){if(parseInt(m)==month[u2]){m=month2[u2];break}}var daystr=day+' '+m+' '+y;var trtd=' <li class="featuredPost2"><a href="'+posturl+'"><img width="160" height="110" class="alignleft" src="'+img[i]+'"/></a><div class="entry-title"><a href="'+posturl+'">'+posttitle+'</a></div>'+removeHtmlTag(postcontent,summaryPost)+'...</li>';document.write(trtd);j++}document.write('</ul>')}
 
 var relatedTitles=new Array();var relatedTitlesNum=0;var relatedUrls=new Array();var thumburl=new Array();function related_results_labels_thumbs(json){for(var i=0;i<json.feed.entry.length;i++){var entry=json.feed.entry[i];relatedTitles[relatedTitlesNum]=entry.title.$t;try{thumburl[relatedTitlesNum]=entry.gform_foot.url}catch(error){s=entry.content.$t;a=s.indexOf("<img");b=s.indexOf("src=\"",a);c=s.indexOf("\"",b+5);d=s.substr(b+5,c-b-5);if((a!=-1)&&(b!=-1)&&(c!=-1)&&(d!="")){thumburl[relatedTitlesNum]=d}else thumburl[relatedTitlesNum]='http://1.bp.blogspot.com/-QjSndGbF0No/T-Nt3HgKsDI/AAAAAAAAG9o/cN6_Oy306rc/s1600/no-video.gif'}if(relatedTitles[relatedTitlesNum].length>35)relatedTitles[relatedTitlesNum]=relatedTitles[relatedTitlesNum].substring(0,35)+"...";for(var k=0;k<entry.link.length;k++){if(entry.link[k].rel=='alternate'){relatedUrls[relatedTitlesNum]=entry.link[k].href;relatedTitlesNum++}}}}function removeRelatedDuplicates_thumbs(){var tmp=new Array(0);var tmp2=new Array(0);var tmp3=new Array(0);for(var i=0;i<relatedUrls.length;i++){if(!contains_thumbs(tmp,relatedUrls[i])){tmp.length+=1;tmp[tmp.length-1]=relatedUrls[i];tmp2.length+=1;tmp3.length+=1;tmp2[tmp2.length-1]=relatedTitles[i];tmp3[tmp3.length-1]=thumburl[i]}}relatedTitles=tmp2;relatedUrls=tmp;thumburl=tmp3}function contains_thumbs(a,e){for(var j=0;j<a.length;j++)if(a[j]==e)return true;return false}function printRelatedLabels_thumbs(){for(var i=0;i<relatedUrls.length;i++){if((relatedUrls[i]==currentposturl)||(!(relatedTitles[i]))){relatedUrls.splice(i,1);relatedTitles.splice(i,1);thumburl.splice(i,1);i--}}var r=Math.floor((relatedTitles.length-1)*Math.random());var i=0;if(relatedTitles.length>0)document.write('<h2>'+relatedpoststitle+'</h2>');document.write('<div style="clear: both;"/>');while(i<relatedTitles.length&&i<20&&i<maxresults){document.write('<a style="text-decoration:none;margin:0 5px 10px 4px;float:left;;border:1px solid #ccc;box-shadow:0 0 4px #bbb;-moz-box-shadow:0 0 4px #bbb;-webkit-box-shadow:0 0 4px #bbb;');if(i!=0)document.write('"');else document.write('"');document.write(' href="'+relatedUrls[r]+'"><div class="play-button"><img class="maskolis_img" src="'+thumburl[r]+'"/><br/></div><div style="width:185px;padding:0 5px;color:#222;height:35px;text-align:center;margin:0px 0px; font:bold 12px Arial; line-height:14px;">'+relatedTitles[r]+'</div></a>');if(r<relatedTitles.length-1){r++}else{r=0}i++}document.write('</div>');relatedUrls.splice(0,relatedUrls.length);thumburl.splice(0,thumburl.length);relatedTitles.splice(0,relatedTitles.length)}
-//]]>
+///////=================================
+
+window.selectnav=function(){return function(p,q){var a,h=function(b){var c;b||(b=window.event);b.target?c=b.target:b.srcElement&&(c=b.srcElement);3===c.nodeType&&(c=c.parentNode);c.value&&(window.location.href=c.value)},k=function(b){b=b.nodeName.toLowerCase();return"ul"===b||"ol"===b},l=function(b){for(var c=1;document.getElementById("selectnav"+c);c++){}return b?"selectnav"+c:"selectnav"+(c-1)},n=function(b){g++;var c=b.children.length,a="",d="",f=g-1;if(c){if(f){for(;f--;){d+=r}d+=" "}for(f=0;f<c;f++){var e=b.children[f].children[0];if("undefined"!==typeof e){var h=e.innerText||e.textContent,i="";j&&(i=-1!==e.className.search(j)||-1!==e.parentElement.className.search(j)?m:"");s&&!i&&(i=e.href===document.URL?m:"");a+='<option value="'+e.href+'" '+i+">"+d+h+"</option>";t&&(e=b.children[f].children[1])&&k(e)&&(a+=n(e))}}1===g&&o&&(a='<option value="">'+o+"</option>"+a);1===g&&(a='<select class="selectnav" id="'+l(!0)+'">'+a+"</select>");g--;return a}};if((a=document.getElementById(p))&&k(a)){document.documentElement.className+=" js";var d=q||{},j=d.activeclass||"active1",s="boolean"===typeof d.autoselect?d.autoselect:!0,t="boolean"===typeof d.nested?d.nested:!0,r=d.indent||"\u2192",o=d.label||"- Navigation -",g=0,m=" selected ";a.insertAdjacentHTML("afterend",n(a));a=document.getElementById(l());a.addEventListener&&a.addEventListener("change",h);a.attachEvent&&a.attachEvent("onchange",h)}}}();(jQuery);
+
+
+/* jQuery cookie */
+
+<![CDATA[
+	jQuery.cookie = function (key, value, options) {
+	    
+	    // key and at least value given, set cookie...
+	    if (arguments.length > 1 && String(value) !== "[object Object]") {
+	        options = jQuery.extend({}, options);
+
+	        if (value === null || value === undefined) {
+	            options.expires = -1;
+	        }
+
+	        if (typeof options.expires === 'number') {
+	            var days = options.expires, t = options.expires = new Date();
+	            t.setDate(t.getDate() + days);
+	        }
+	        
+	        value = String(value);
+	        
+	        return (document.cookie = [
+	            encodeURIComponent(key), '=',
+	            options.raw ? value : encodeURIComponent(value),
+	            options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
+	            options.path ? '; path=' + options.path : '',
+	            options.domain ? '; domain=' + options.domain : '',
+	            options.secure ? '; secure' : ''
+	        ].join(''));
+	    }
+
+	    // key and possibly options given, get cookie...
+	    options = value || {};
+	    var result, decode = options.raw ? function (s) { return s; } : decodeURIComponent;
+	    return (result = new RegExp('(?:^|; )' + encodeURIComponent(key) + '=([^;]*)').exec(document.cookie)) ? decode(result[1]) : null;
+	};
+]]>
+
+
+jQuery(document).ready(function(){var $box=jQuery('.post'),$bar=jQuery('a.bar_view');$dat=jQuery('a.dat_view');$dat.click(function(){$box.removeClass("bar");jQuery(this).addClass('active');$bar.removeClass('active');jQuery.cookie('dat_style',0);return false});$bar.click(function(){$box.addClass("bar");jQuery(this).addClass('active');$dat.removeClass('active');jQuery.cookie('dat_style',1);return false});if(jQuery.cookie('dat_style')==0){$box.removeClass("bar");$dat.addClass('active')}else{$box.addClass("bar");$bar.addClass('active')}});
 
