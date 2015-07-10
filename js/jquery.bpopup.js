@@ -1,3 +1,5 @@
+
+alert('jquery popup');
 /*================================================================================
  * @name: bPopup - if you can't get it up, use bPopup
  * @author: (c)Bjoern Klinggaard (twitter@bklinggaard)
