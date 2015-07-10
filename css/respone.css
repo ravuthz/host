@@ -9,6 +9,9 @@ Responsive styles
 .post {
     height: auto;
 }
+.menu {
+    display: none;
+}
 
 @media screen and (max-width: 1260px) {
     #content {
@@ -85,6 +88,9 @@ Responsive styles
     }
     #adajaxmenu li ul {
         display: none;
+    }
+    #adajaxmenu .menu {
+        display: block;
     }
     .post {
         width: 50% !important;
