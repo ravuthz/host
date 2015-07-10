@@ -5,7 +5,7 @@ console.info('default.js loaded.');
 
     $(function(){
         $('#adajaxmenu .menu').on('click', function(){
-            $('#adajaxmenu li').fadeOut('300');
+            $('#adajaxmenu li').show();
         });
     });
 
