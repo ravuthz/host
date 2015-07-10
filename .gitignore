@@ -16,6 +16,7 @@
 *.glue
 *.pub
 gitinfo.txt
+*.bk.html
 
 # Packages #
 ############
