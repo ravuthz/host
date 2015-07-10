@@ -1,4 +1,4 @@
-alert('js in github ok');
+console.info('defaul.js loaded.');
 
 window.selectnav = function() {
     return function(p, q) {

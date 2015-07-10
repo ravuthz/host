@@ -1,5 +1,4 @@
-
-alert('jquery popup');
+console.info('jquery.bpopup.js loaded');
 /*================================================================================
  * @name: bPopup - if you can't get it up, use bPopup
  * @author: (c)Bjoern Klinggaard (twitter@bklinggaard)
