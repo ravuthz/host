@@ -84,7 +84,7 @@ window.selectnav = function() {
     
     
 
-    var url_blog = '', // Replace With your Blog Url
+    var url_blog = 'http://ravuthz.blogspot.com/', // Replace With your Blog Url
         numpostx = 20; // Maximum Post
     // $.ajax({
     //         url: '' + url_blog + '/feeds/posts/default?alt=json-in-script&max-results=' + numpostx + '',
@@ -126,7 +126,9 @@ window.selectnav = function() {
     //         }
     //     });
         
-        ajaxGet('' + url_blog + '/feeds/posts/default?alt=json-in-script&max-results=' + numpostx + '', 
+        //var url = 'https://www.blogger.com/feeds/5615873936899142487/posts/default?alt=json&max-results=40&orderby=published';
+
+        ajaxGet('' + url_blog + '/feeds/posts/default?alt=json&max-results=' + numpostx + '&orderby=published', 
         function(data){
             var posts = data.feed.entry;
             if(posts) {
