@@ -83,116 +83,45 @@ window.selectnav = function() {
     });
     
     
+/* Breaking News Script */
+    // var url_blog = 'http://ravuthz.blogspot.com/', numpostx = 20; // Maximum Post
+    // var url = url_blog + '/feeds/posts/default?alt=json&max-results=' + numpostx + '&orderby=published';
 
-    var url_blog = 'http://ravuthz.blogspot.com/', // Replace With your Blog Url
-        numpostx = 20; // Maximum Post
-    // $.ajax({
-    //         url: '' + url_blog + '/feeds/posts/default?alt=json-in-script&max-results=' + numpostx + '',
-    //         type: 'get',
-    //         dataType: "jsonp",
-    //         success: function(data) {
-    //             var posturl, posttitle, skeleton = '',
-    //                 entry = data.feed.entry;
-    //             if (entry !== undefined) {
-    //                 skeleton = "<ul>";
-    //                 for (var i = 0; i < entry.length; i++) {
-    //                     for (var j = 0; j < entry[i].link.length; j++) {
-    //                         if (entry[i].link[j].rel == "alternate") {
-    //                             posturl = entry[i].link[j].href;
-    //                             break;
-    //                         }
-    //                     }
-    //                     posttitle = entry[i].title.$t;
-    //                     skeleton += '<li><a href="' + posturl + '" target="_blank">' + posttitle + '</a></li>';
-    //                 }
-    //                 skeleton += '</ul>';
-    //                 $('#recentpostbreaking').html(skeleton);
-    //                 // kode untuk efek pada breaking news
-
-    //                 function tick() {
-    //                     $('#recentpostbreaking li:first').slideUp(function() {
-    //                         $(this).appendTo($('#recentpostbreaking ul')).slideDown();
-    //                     });
-    //                 }
-    //                 setInterval(function() {
-    //                     tick()
-    //                 }, 5000);
-    //             } else {
-    //                 $('#recentpostbreaking').html('<span>No result!</span>');
-    //             }
-    //         },
-    //         error: function() {
-    //             $('#recentpostbreaking').html('<strong>Error Loading Feed!</strong>');
-    //         }
-    //     });
-        
-        //var url = 'https://www.blogger.com/feeds/5615873936899142487/posts/default?alt=json&max-results=40&orderby=published';
-
-        ajaxGet('' + url_blog + '/feeds/posts/default?alt=json&max-results=' + numpostx + '&orderby=published', 
-        function(data){
-            var posts = data.feed.entry;
-            if(posts) {
-                var tag = "<ul>";
-                for(var i=0; i<posts.length; i++){
-                    var postTitle = posts[i].title.$t;
-                    var postLink;
-                    
-                    for (var j = 0; j < posts[i].link.length; j++) {
-                        if (posts[i].link[j].rel == "alternate") {
-                            postLink = posts[i].link[j].href;
-                            break;
-                        }
-                    }
-                    tag += "<li><a href='" + postLink + "'>" + postTitle + "</a></li>";
-                }
-                tag += "</ul>";
-                $("#recentpostbreaking").html(tag);
+    var blog_id = '5615873936899142487', max_posts = 40;
+    var url = 'https://www.blogger.com/feeds/' + blog_id +'/posts/default?alt=json&max-results=' + max_posts + '&orderby=published';
+    
+    ajaxGet(url, function(data){
+        var posts = data.feed.entry;
+        if(posts) {
+            var tag = "<ul>";
+            for(var i=0; i<posts.length; i++){
+                var postTitle = posts[i].title.$t;
+                var postLink;
                 
-                setInterval(function() {
-                    $('#recentpostbreaking li:first').slideUp(function() {
-                        $(this).appendTo($('#recentpostbreaking ul')).slideDown();
-                    });
-                }, 5000);
-            } else {
-                $('#recentpostbreaking').html('<span>No Post!</span>');
+                for (var j = 0; j < posts[i].link.length; j++) {
+                    if (posts[i].link[j].rel == "alternate") {
+                        postLink = posts[i].link[j].href;
+                        break;
+                    }
+                }
+                tag += "<li><a href='" + postLink + "'>" + postTitle + "</a></li>";
             }
-
+            tag += "</ul>";
+            $("#recentpostbreaking").html(tag);
             
-            
-            // var posturl, posttitle, skeleton = '',
-            //         entry = data.feed.entry;
-            //     if (entry !== undefined) {
-            //         skeleton = "<ul>";
-            //         for (var i = 0; i < entry.length; i++) {
-            //             for (var j = 0; j < entry[i].link.length; j++) {
-            //                 if (entry[i].link[j].rel == "alternate") {
-            //                     posturl = entry[i].link[j].href;
-            //                     break;
-            //                 }
-            //             }
-            //             posttitle = entry[i].title.$t;
-            //             skeleton += '<li><a href="' + posturl + '" target="_blank">' + posttitle + '</a></li>';
-            //         }
-            //         skeleton += '</ul>';
-            //         $('#recentpostbreaking').html(skeleton);
-            //         // kode untuk efek pada breaking news
-
-            //         function tick() {
-            //             $('#recentpostbreaking li:first').slideUp(function() {
-            //                 $(this).appendTo($('#recentpostbreaking ul')).slideDown();
-            //             });
-            //         }
-            //         setInterval(function() {
-            //             tick()
-            //         }, 5000);
-            //     } else {
-            //         $('#recentpostbreaking').html('<span>No result!</span>');
-            //     }
-        },
-        function(){
-            $('#recentpostbreaking').html('<strong>Error Loading Feed!</strong>');
-        });
-
+            setInterval(function() {
+                $('#recentpostbreaking li:first').slideUp(function() {
+                    $(this).appendTo($('#recentpostbreaking ul')).slideDown();
+                });
+            }, 5000);
+        } else {
+            $('#recentpostbreaking').html('<span>No Post!</span>');
+        }
+    },
+    function(){
+        $('#recentpostbreaking').html('<strong>Error Loading Feed!</strong>');
+    });
+/* //Breaking News Script */
 
 
 
