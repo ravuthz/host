@@ -2,14 +2,6 @@ console.info('default.js loaded.');
 
 
 ;(function($) {
-
-    // $(document).ready(function($) {
-    //     $('#adajaxmenu .menu a').on('click', function(){
-    //         alert(1);
-    //         $('#adajaxmenu li').show();
-    //     });
-    // });
-
     $(function(){
         $('#adajaxmenu .menu a').on('click', function(){
             $('#adajaxmenu li').slideToggle(fast);
