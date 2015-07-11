@@ -243,17 +243,6 @@ function printRelatedLabels_thumbs() {
         return tags.join("");
     };
 
-    window.listPagers = function() {
-        var tags = [], 
-            url = '#';
-        tags.push('<div class="blog-pager" id="blog-pager"><div class="showpageArea">');
-        tags.push('<span class="showpageOf">Pages(3)</span>');
-        tags.push('<span class="showpagePoint">', 1,'</a></span>');
-        tags.push('<span class="showpageNum"><a href="', url ,'">',2 ,'</a></span>');
-        tags.push('<span class="showpageNum"><a href="', url ,'">',3 ,'</a></span>');
-        tags.push('<span class="showpageNum"><a href="', url ,'">',4 ,'</a></span>');
-        tags.push('</div></div>');
-        return tags.join("");
-    }
+    
 
 })(jQuery, window); /* main scope for jQuery and Window */
