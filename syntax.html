@@ -1,0 +1,10 @@
+<b:if cond='data:blog.url == data:blog.homepageUrl'>
+    <data:title/>
+<b:else/>
+
+<a expr:href='data:blog.homepageUrl'>
+    <data:title/>
+</a>
+
+<b:if cond='data:mobile'></b:if>
+<b:if cond='!data:mobile'></b:if>
