@@ -18,7 +18,7 @@
     box-shadow: inset -1px 0 1px rgba(0, 0, 0, 0.2);
 }
 
-.post-comments, span {
+.post-comments >  {
     display: block;
     position: relative;
     padding: 2px 7px;
@@ -28,7 +28,7 @@
     margin-right: 3px;
 }
 
-.post-comments, span:before {
+.post-comments > span:before {
     content: '';
     display: inline-block;
     border-left: 7px solid transparent;
@@ -55,11 +55,4 @@
 
 .post:last-child {
     border: 0;
-}
-
-@media screen and (max-width: 768px) {
-    .post {
-        width: 100%;
-        float: left;
-    }
 }
