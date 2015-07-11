@@ -27,6 +27,7 @@ console.info('single.js loaded.');
 	};
 
 	window.page = function(cpage, tpost) {
+
         var cp = parseInt(cpage),
         	tp = Math.ceil(parseInt(tpost) / max_posts);
 
@@ -49,6 +50,8 @@ console.info('single.js loaded.');
             $('.blog-posts.hfeed').html(listPosts(data));
             $('#Blog1').append(ptag);
         });
+
+        console.info('page : ', cp);
     }
 
 
