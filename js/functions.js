@@ -1,4 +1,4 @@
-function releatePostFunction(){
+var releatePostFunction = (function(){
     var relatedTitles = new Array();
     var relatedTitlesNum = 0;
     var relatedUrls = new Array();
@@ -85,7 +85,7 @@ function releatePostFunction(){
             thumburl.splice(0, thumburl.length);
             relatedTitles.splice(0, relatedTitles.length);
     }
-}
+})();
 
 
 ;(function($) { /* main scope for jQuery and Window */
