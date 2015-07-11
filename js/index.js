@@ -28,7 +28,9 @@ console.info('single.js loaded.');
 
 	window.page = function(cpage, tpost) {
         var cp = parseInt(cpage),
-        	tp = parseInt(tpost);
+        	tp = Math.ceil(parseInt(tpost) / max_posts);
+
+        cp = cp <= 1 ? 1 : (cp * max_posts);
 
         var ptag = '<div class="blog-pager" id="blog-pager"><div class="showpageArea">';
         
@@ -42,10 +44,7 @@ console.info('single.js loaded.');
         }
         ptag += '</div></div>';
 
-        cp = cp <= 1 ? 1 : (cp * max_posts);
-
         url += '&start-index=' + cp + '&orderby=published';
-
         ajaxGet(url, function(data){
             $('.blog-posts.hfeed').html(listPosts(data));
             $('#Blog1').append(ptag);
