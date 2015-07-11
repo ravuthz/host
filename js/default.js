@@ -6,32 +6,7 @@ console.info('default.js loaded.');
             $('#adajaxmenu li:not(.menu)').slideToggle('slow');
         });
 
-        var blog_id = '5615873936899142487', max_posts = 9;
-        var url = 'https://www.blogger.com/feeds/' + blog_id +'/posts/default?alt=json&max-results=' + max_posts + '&orderby=published';
-        ajaxGet(url, function(data){
-            // var posts = data.feed.entry;
-            console.log('data: ', data);
-            var x = listPosts(data);
-            console.log('tags : ', x);
-            $('.blog-posts.hfeed').html(x);
-
-            // $('.body-post span').each(function(){
-            //     var postTags = makePost({
-            //         'title': posts[0].title.$t,
-            //         'link': posts[0].link[2].href,
-            //         'date': '10:00',
-            //         'comment' : '0',
-            //         'content': '...'
-            //     });
-            //     $(this).html(postTags);
-            //     // var script = $(this).next();
-            //     // console.error(script);
-            //     // console.error(script);
-            //     // $(this).siblings('script').remove();
-            //     $(this).show();
-            // });
-        });
-
+        
     });
 
 
