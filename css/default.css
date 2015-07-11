@@ -1237,7 +1237,10 @@ body > div.header-wrapper > div > div.banner {
     background: #d24228;
 }
 
-
+.clearfix {
+    clear: both;
+    float: none;
+}
 
 
 
