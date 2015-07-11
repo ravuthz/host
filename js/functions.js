@@ -17,7 +17,9 @@
             dataType: 'jsonp',
             success: success,
             error: failure || function(XMLHttpRequest, textStatus, errorThrown) {
-                console.log('Status: ' + textStatus + ', Error: ' + errorThrown);
+                console.log("Ajax error at url [ " + url + " ]");
+                console.log("Error status : " + textStatus);
+                console.log("Error exception : " + errorThrown);
             }
         });
     };

@@ -107,10 +107,10 @@ console.info('default.js loaded.');
 
 
 
-    $('#adajaxmenu').ajaxBloggerMenu({
-        numPosts: 4, // Number of Posts to show
-        defaultImg: 'http://2.bp.blogspot.com/-BNRsAWPapHM/VY0FFPt97YI/AAAAAAAAB9Y/tyZ_UBgPEg4/s1600/no-image.png' // Default thumbnail Image
-    });
+    // $('#adajaxmenu').ajaxBloggerMenu({
+    //     numPosts: 4, // Number of Posts to show
+    //     defaultImg: 'http://2.bp.blogspot.com/-BNRsAWPapHM/VY0FFPt97YI/AAAAAAAAB9Y/tyZ_UBgPEg4/s1600/no-image.png' // Default thumbnail Image
+    // });
 
     /* Search button event */
     $('.searchblog').submit(function(e) {
@@ -189,19 +189,7 @@ console.info('default.js loaded.');
     // });
    
     /* Custome functions */
-    function ajaxGet(url, success, failure){
-        $.ajax({
-            methos: "GET",
-            url: url,
-            dataType: "jsonp",
-            success: success,
-            error: failure || function(xhr, ajaxOptions, thrownError){
-                console.log("Ajax error at url [ " + url + " ]");
-                console.log("Error status : " + xhr.status);
-                console.log("Error exception : " + xhr.status);
-            }
-        });
-    }    
+    
     function setHtml(objs, id, html){
         var tag = "";
         $.each(objs, function(k, v){
