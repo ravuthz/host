@@ -6,122 +6,100 @@ console.info('default.js loaded.');
             $('#adajaxmenu li:not(.menu)').slideToggle('slow');
         });
 
+
+        /* Breaking News Script */
+        // var url_blog = 'http://ravuthz.blogspot.com/', numpostx = 20; // Maximum Post
+        // var url = url_blog + '/feeds/posts/default?alt=json&max-results=' + numpostx + '&orderby=published';
+        // /feeds/posts/summary?alt=json-in-script&amp;callback=showpageCount&amp;max-results=99999
+        var blog_id = '5615873936899142487', max_posts = 40;
+        var url = 'https://www.blogger.com/feeds/' + blog_id +'/posts/default?alt=json&max-results=' + max_posts + '&orderby=published';
         
-    });
-
-
-    function makePost(json){
-        var tags = [],
-            post = {},
-            posts = json.feed.entry;
-
-        for(var i=0; i<posts.length; i++){
-            tags.push('<div class="entry-image"><a href="', post.link, '">');
-            tags.push('<img class="thumb" src="', post.thumb, '"/></a></div>');
-            tags.push('<div class="post-comments"><span><i class="fa fa-comments-o"></i>', post.comment, '</span></div>');
-            tags.push('<div class="post-meta date">', post.date, '</div>');
-            tags.push('<h2 class="index-title">', '<a href="', post.link, '">', post.title, '</a></h2>');
-            tags.push('<div class="entry-container"><p>', post.content, '</p></div>');
-            
-        }
-        
-        return tags.join("");
-    }
-
-    
-    /* BackToTop button */
-    $("a#back-to-top").click(function(){
-        $("html, body").animate({
-            scrollTop:0
-        },"slow");
-        return false;
-    });
-    
-    
-    /* Breaking News Script */
-    // var url_blog = 'http://ravuthz.blogspot.com/', numpostx = 20; // Maximum Post
-    // var url = url_blog + '/feeds/posts/default?alt=json&max-results=' + numpostx + '&orderby=published';
-    // /feeds/posts/summary?alt=json-in-script&amp;callback=showpageCount&amp;max-results=99999
-    var blog_id = '5615873936899142487', max_posts = 40;
-    var url = 'https://www.blogger.com/feeds/' + blog_id +'/posts/default?alt=json&max-results=' + max_posts + '&orderby=published';
-    
-    ajaxGet(url, function(data){
-        var posts = data.feed.entry;
-        if(posts) {
-            var tag = "<ul>";
-            for(var i=0; i<posts.length; i++){
-                var postTitle = posts[i].title.$t;
-                var postLink;
-                
-                for (var j = 0; j < posts[i].link.length; j++) {
-                    if (posts[i].link[j].rel == "alternate") {
-                        postLink = posts[i].link[j].href;
-                        break;
+        ajaxGet(url, function(data){
+            var posts = data.feed.entry;
+            if(posts) {
+                var tag = "<ul>";
+                for(var i=0; i<posts.length; i++){
+                    var postTitle = posts[i].title.$t;
+                    var postLink;
+                    
+                    for (var j = 0; j < posts[i].link.length; j++) {
+                        if (posts[i].link[j].rel == "alternate") {
+                            postLink = posts[i].link[j].href;
+                            break;
+                        }
                     }
+                    tag += "<li><a href='" + postLink + "'>" + postTitle + "</a></li>";
                 }
-                tag += "<li><a href='" + postLink + "'>" + postTitle + "</a></li>";
+                tag += "</ul>";
+                $("#recentpostbreaking").html(tag);
+                
+                setInterval(function() {
+                    $('#recentpostbreaking li:first').slideUp(function() {
+                        $(this).appendTo($('#recentpostbreaking ul')).slideDown();
+                    });
+                }, 5000);
+            } else {
+                $('#recentpostbreaking').html('<span>No Post!</span>');
             }
-            tag += "</ul>";
-            $("#recentpostbreaking").html(tag);
-            
-            setInterval(function() {
-                $('#recentpostbreaking li:first').slideUp(function() {
-                    $(this).appendTo($('#recentpostbreaking ul')).slideDown();
-                });
-            }, 5000);
-        } else {
-            $('#recentpostbreaking').html('<span>No Post!</span>');
-        }
-    }, function(){
-        $('#recentpostbreaking').html('<strong>Error Loading Feed!</strong>');
-    });
-    /* //Breaking News Script */
+        }, function(){
+            $('#recentpostbreaking').html('<strong>Error Loading Feed!</strong>');
+        });
+        /* //Breaking News Script */
 
-
-
-    $('#adajaxmenu').ajaxBloggerMenu({
-        numPosts: 4, // Number of Posts to show
-        defaultImg: 'http://2.bp.blogspot.com/-BNRsAWPapHM/VY0FFPt97YI/AAAAAAAAB9Y/tyZ_UBgPEg4/s1600/no-image.png' // Default thumbnail Image
-    });
-
-    /* Search button event */
-    $('.searchblog').submit(function(e) {
-        if ($('.search-form .searchbar').val().length === 0) {
-            $('.search-form .search-alert').fadeIn().css('display', 'inline-block');
-            e.preventDefault();
-        }
-    });
-
-    /* disable right on page */
-    // $(document).bind("contextmenu",function(e){
-    //     return false;
-    // });
-    
-    
-    /* list posts with pagination */
-    // var currentPage = 1, rowsPerPage = 9,
-    //     url = 'http://www.blogger.com/feeds/5615873936899142487/posts/default?alt=json';
-
-    // ajaxGet(url + '&max-results=' + rowsPerPage + '&start-index=' + currentPage,
-    // function(data){
-    //     pagePostHtml(data.feed.entry, '#blogPost2');
-    // });
-    
-    // $(document).on('click', '.item', function(e){
-    //     e.preventDefault();
-    //     var id = $(this).attr('id');
-    //     var post = get(id);
+        /* BackToTop button */
+        $("a#back-to-top").click(function(){
+            $("html, body").animate({
+                scrollTop:0
+            },"slow");
+            return false;
+        });
         
-    //     var tag = '<article class="article">'
-    //         tag += '<header><h3>' + post.title.$t + '</h3></header>'
-    //         tag += '<main><img src="" alt="">'
-    //         tag += '<p>' + post.content.$t + '</p></main>'
-    //         tag += '<footer></footer></article>';
-    //     // $("#postOut").append(tag);
-    //     $("#postOut").html(tag);
-    //     $("#postOut").bPopup();
-    // });
+        $('#adajaxmenu').ajaxBloggerMenu({
+            numPosts: 4, // Number of Posts to show
+            defaultImg: 'http://2.bp.blogspot.com/-BNRsAWPapHM/VY0FFPt97YI/AAAAAAAAB9Y/tyZ_UBgPEg4/s1600/no-image.png' // Default thumbnail Image
+        });
+
+        /* Search button event */
+        $('.searchblog').submit(function(e) {
+            if ($('.search-form .searchbar').val().length === 0) {
+                $('.search-form .search-alert').fadeIn().css('display', 'inline-block');
+                e.preventDefault();
+            }
+        });
+
+        /* disable right on page */
+        // $(document).bind("contextmenu",function(e){
+        //     return false;
+        // });
+        
+        
+        /* list posts with pagination */
+        // var currentPage = 1, rowsPerPage = 9,
+        //     url = 'http://www.blogger.com/feeds/5615873936899142487/posts/default?alt=json';
+
+        // ajaxGet(url + '&max-results=' + rowsPerPage + '&start-index=' + currentPage,
+        // function(data){
+        //     pagePostHtml(data.feed.entry, '#blogPost2');
+        // });
+        
+        // $(document).on('click', '.item', function(e){
+        //     e.preventDefault();
+        //     var id = $(this).attr('id');
+        //     var post = get(id);
+            
+        //     var tag = '<article class="article">'
+        //         tag += '<header><h3>' + post.title.$t + '</h3></header>'
+        //         tag += '<main><img src="" alt="">'
+        //         tag += '<p>' + post.content.$t + '</p></main>'
+        //         tag += '<footer></footer></article>';
+        //     // $("#postOut").append(tag);
+        //     $("#postOut").html(tag);
+        //     $("#postOut").bPopup();
+        // });
     
+    }); /* //document ready */
+
+
     function set(name, value){
         localStorage.setItem(name, JSON.stringify(value));
     }
