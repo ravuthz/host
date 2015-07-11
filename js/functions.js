@@ -16,7 +16,7 @@
             type: 'get',
             dataType: 'jsonp',
             success: success,
-            error: failure || var(XMLHttpRequest, textStatus, errorThrown) {
+            error: failure || function(XMLHttpRequest, textStatus, errorThrown) {
                 console.log('Status: ' + textStatus + ', Error: ' + errorThrown);
             }
         });
