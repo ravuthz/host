@@ -18,9 +18,9 @@ console.info('single.js loaded.');
 
 	});
 
-	window.showpageCount = functions(json){
+	window.showpageCount = function(json){
 		console.log('json', json);
-	}
+	};
 
 
 
