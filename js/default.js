@@ -15,7 +15,8 @@ console.info('default.js loaded.');
                 'content': '...'
             });
             $(this).html(postTags);
-            $(this).next().remove();
+            var script = $(this).next();
+            alert(script.x);
             // $(this).siblings('script').remove();
             $(this).show();
         });
