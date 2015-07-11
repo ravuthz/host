@@ -247,19 +247,16 @@ function printRelatedLabels_thumbs() {
         //     $('.blog-posts.hfeed').html(tags.join(""));
     };
 
-    < div class = "blog-pager"
-    id = "blog-pager" > < div class = "showpageArea" > < span style = "COLOR: #000;"
-    class = "showpageOf" > Pages(3) < /span><span class="showpagePoint">1</span > < span class = "showpageNum" > < a href = "/search?updated-max=2014-11-02T19%3A10%3A00%2B07%3A00&amp;max-results=9" > 2 < /a></span > < span class = "showpageNum" > < a href = "/search?updated-max=2014-09-18T02%3A49%3A00%2B07%3A00&amp;max-results=9" > 3 < /a></span > < span class = "showpage" > < a href = "/search?updated-max=2014-11-02T19%3A10%3A00%2B07%3A00&amp;max-results=9" > Next < /a></span > < /div></div >
-        window.listPagers = function() {
-            var tags = [];
-            tags.push('<div class="blog-pager" id="blog-pager"><div class="showpageArea">');
-            tags.push('<span class="showpageOf">Pages(3)</span>');
-            tags.push('<span class="showpagePoint">', 1,'</a></span>');
-            tags.push('<span class="showpageNum"><a href="', url ,'">',2 ,'</a></span>');
-            tags.push('<span class="showpageNum"><a href="', url ,'">',3 ,'</a></span>');
-            tags.push('<span class="showpageNum"><a href="', url ,'">',4 ,'</a></span>');
-            tags.push('</div></div>');
-            return tags.join("");
-        }
+    window.listPagers = function() {
+        var tags = [];
+        tags.push('<div class="blog-pager" id="blog-pager"><div class="showpageArea">');
+        tags.push('<span class="showpageOf">Pages(3)</span>');
+        tags.push('<span class="showpagePoint">', 1,'</a></span>');
+        tags.push('<span class="showpageNum"><a href="', url ,'">',2 ,'</a></span>');
+        tags.push('<span class="showpageNum"><a href="', url ,'">',3 ,'</a></span>');
+        tags.push('<span class="showpageNum"><a href="', url ,'">',4 ,'</a></span>');
+        tags.push('</div></div>');
+        return tags.join("");
+    }
 
 })(jQuery, window); /* main scope for jQuery and Window */
