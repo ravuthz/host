@@ -18,15 +18,18 @@ console.info('single.js loaded.');
 
 	window.showpageCount = function(json){
 		var entry = json.feed.entry.length; //19
-		var cpost = json.feed.openSearch$startIndex;//1
-		var tpost = json.feed.openSearch$totalResults || json.feed.entry.length;//19
+		var cpost = json.feed.openSearch$startIndex.$t;//1
+		var tpost = json.feed.openSearch$totalResults.$t || json.feed.entry.length;//19
 		console.log('json', json);
 
 		page(cpage, tpost);
 
 	};
 
-	window.page = function(cp, tp) {
+	window.page = function(cpage, tpost) {
+        var cp = parseInt(cpage),
+        	tp = parseInt(tpost);
+
         var ptag = '<div class="blog-pager" id="blog-pager"><div class="showpageArea">';
         
         ptag += '<span class="showpageOf">Pages(' + tp + ')</span>';
