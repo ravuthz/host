@@ -17,9 +17,9 @@ console.info('single.js loaded.');
 	// });
 
 	window.showpageCount = function(json){
-		var entry = feed.entry.length; //19
-		var cpost = feed.openSearch$startIndex;//1
-		var tpost = feed.openSearch$totalResults;//19
+		var entry = json.feed.entry.length; //19
+		var cpost = json.feed.openSearch$startIndex;//1
+		var tpost = json.feed.openSearch$totalResults || json.feed.entry.length;//19
 		console.log('json', json);
 
 		page(cpage, tpost);
