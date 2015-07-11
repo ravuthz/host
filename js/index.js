@@ -31,7 +31,7 @@ console.info('single.js loaded.');
         var cp = parseInt(cpage),
         	tp = Math.ceil(parseInt(tpost) / max_posts);
 
-        cp = cp <= 1 ? 1 : (cp * max_posts);
+        cp = cp <= 1 ? 1 : ((cp-1) * max_posts);
 
         var ptag = '<div class="blog-pager" id="blog-pager"><div class="showpageArea">';
         
