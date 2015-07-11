@@ -45,10 +45,10 @@ console.info('single.js loaded.');
         }
         ptag += '</div></div>';
 
-        url += '&start-index=' + cp + '&orderby=published';
-        
+        var link = url + '&start-index=' + cp + '&orderby=published';
+
         $(function(){
-        	ajaxGet(url, function(data){
+        	ajaxGet(link, function(data){
 	            $('.blog-posts.hfeed').html(listPosts(data));
 	            $('#Blog1').append(ptag);
 	        });
