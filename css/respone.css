@@ -12,6 +12,10 @@ Responsive styles
     padding: 0;
 }
 
+#content1 {
+    margin: 10px;
+}
+
 .post {
     height: auto;
 }
