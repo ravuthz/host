@@ -37,9 +37,9 @@ console.info('single.js loaded.');
         ptag += '<span class="showpageOf">Pages(' + tp + ')</span>';
         for(var p=1; p<=tp; p++){
         	if(cp == p){
-        		ptag += '<span class="showpagePoint"><a href="javascript:page(' + tp + ',' + p + ')">' + p + '</a></span>';
+        		ptag += '<span class="showpagePoint"><a href="javascript:" onclick="page(' + tp + ',' + p + ');">' + p + '</a></span>';
         	} else {
-        		ptag += '<span class="showpageNum"><a href="javascript:page(' + tp + ',' + p + ')">' + p + '</a></span>';
+        		ptag += '<span class="showpageNum"><a href="javascript:" onclick="page(' + tp + ',' + p + ');">' + p + '</a></span>';
         	}
         }
         ptag += '</div></div>';
