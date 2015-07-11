@@ -240,7 +240,6 @@ function printRelatedLabels_thumbs() {
             
             // tags.push('<div class="clearfix"></div>');
             tags.push('</span></div></div></div>');
-            tags.push('<div class="clearfix"></div>');
         }
         return tags.join("");
         // if(selector)
