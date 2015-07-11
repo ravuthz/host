@@ -6,19 +6,25 @@ console.info('default.js loaded.');
             $('#adajaxmenu li:not(.menu)').slideToggle('slow');
         });
 
-        $('.body-post span').each(function(){
-            var postTags = makePost({
-                'title': x,
-                'link': y,
-                'date': t,
-                'comment' : u,
-                'content': '...'
+        var blog_id = '5615873936899142487', max_posts = 40;
+        var url = 'https://www.blogger.com/feeds/' + blog_id +'/posts/default?alt=json&max-results=' + max_posts + '&orderby=published';
+        ajaxGet(url, function(data){
+            var posts = data.feed.entry;
+            $('.body-post span').each(function(){
+                var postTags = makePost({
+                    'title': posts[0].title.$t,
+                    'link': posts[0].link[2].href,
+                    'date': '10:00',
+                    'comment' : '0',
+                    'content': '...'
+                });
+                $(this).html(postTags);
+                // var script = $(this).next();
+                // console.error(script);
+                // console.error(script);
+                // $(this).siblings('script').remove();
+                $(this).show();
             });
-            $(this).html(postTags);
-            var script = $(this).next();
-            alert(script.x);
-            // $(this).siblings('script').remove();
-            $(this).show();
         });
 
         // var x="<data:post.title/>",y="<data:post.url/>",t="<data:post.timestamp/>",
