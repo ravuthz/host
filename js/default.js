@@ -8,19 +8,27 @@ console.info('default.js loaded.');
         });
 
         $('.body-post span').each(function(){
-            var postTags = makePost({
-                'title': x,
-                'link': y,
-                'date': t,
-                'comment' : u,
-                'content': '...'
-            });
-            $(this).html(postTags);
-            $(this).siblings('script').remove();
+            // var postTags = makePost({
+            //     'title': x,
+            //     'link': y,
+            //     'date': t,
+            //     'comment' : u,
+            //     'content': '...'
+            // });
+            // $(this).html(postTags);
+            // $(this).siblings('script').remove();
             $(this).show();
         });
 
-    
+        // var x="<data:post.title/>",y="<data:post.url/>",t="<data:post.timestamp/>",
+        //     u="<data:post.numComments/>";rm("p<data:post.id/>");                  
+
+        // var window["<data:post.id/>"] = {
+        //   title: "<data:post.title/>",
+        //   link: "<data:post.url/>",
+        //   date: "<data:post.timestamp/>",
+        //   comment: "<data:post.numComments/>"
+        // };
 
     });
 
