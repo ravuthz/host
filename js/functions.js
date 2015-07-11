@@ -1,4 +1,3 @@
-
 ;(function($) { /* main scope for jQuery and Window */
 
     // featurePosts({
@@ -155,7 +154,3 @@
     }
 
 })(jQuery, window); /* main scope for jQuery and Window */
-
-
-
-    
