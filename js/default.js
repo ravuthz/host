@@ -6,7 +6,32 @@ console.info('default.js loaded.');
         $('#adajaxmenu .menu a').on('click', function(){
             $('#adajaxmenu li:not(.menu)').slideToggle('slow');
         });
+
+        $('.body-post span').each(function(){
+            var postTags = makePost({
+                'title': x,
+                'link': y,
+                'date': t,
+                'comment' : u,
+                'content': '...'
+            });
+            $(this).html(postTags);
+        });
+
+    
+
     });
+
+    function makePost(post){
+        var tags = [];
+        tags.push('<div class="entry-image"><a href="', post.link, '">');
+        tags.push('<img class="thumb" src="', post.thumb, '"/></a></div>');
+        tags.push('<div class="post-comments"><span><i class="fa fa-comments-o"></i>', post.comment, '</span></div>');
+        tags.push('<div class="post-meta date">', post.date, '</div>');
+        tags.push('<h2 class="index-title">', '<a href="', post.link, '">', post.title, '</a></h2>');
+        tags.push('<div class="entry-container"><p>', post.content, '</p></div>');
+        return tags.join("");
+    }
 
     
     /* BackToTop button */
