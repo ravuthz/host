@@ -150,10 +150,11 @@
             tags.push('<div class="clearfix"></div>');
             tags.push('</span></div></div></div>');
         }
-        if(selector)
-            return tags.join("");
-        else
-            $('.blog-posts.hfeed').html(tags.join(""));
+        return tags.join("");
+        // if(selector)
+        //     return tags.join("");
+        // else
+        //     $('.blog-posts.hfeed').html(tags.join(""));
     };
 
 })(jQuery, window); /* main scope for jQuery and Window */

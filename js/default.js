@@ -10,8 +10,9 @@ console.info('default.js loaded.');
         var url = 'https://www.blogger.com/feeds/' + blog_id +'/posts/default?alt=json&max-results=' + max_posts + '&orderby=published';
         ajaxGet(url, function(data){
             // var posts = data.feed.entry;
-
-            listPosts(data);
+            console.log('data: ', data);
+            var x = listPosts(data);
+            console.log('tags : ', x);
 
             // $('.body-post span').each(function(){
             //     var postTags = makePost({
