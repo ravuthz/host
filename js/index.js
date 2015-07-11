@@ -7,9 +7,10 @@ console.info('single.js loaded.');
         ajaxGet(url, function(data){
             var x = listPosts(data);
             $('.blog-posts.hfeed').html(x);
+            $('#Blog1').html('<div class="clearfix"></div>');
         });
 
-        
+
 
 	});
 
