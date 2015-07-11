@@ -18,8 +18,7 @@
     box-shadow: inset -1px 0 1px rgba(0, 0, 0, 0.2);
 }
 
-.post-comments &gt;
-span {
+.post-comments, span {
     display: block;
     position: relative;
     padding: 2px 7px;
@@ -29,11 +28,8 @@ span {
     margin-right: 3px;
 }
 
-.post-comments &gt;
-span:before {
-    content: &#39;
-    &#39;
-    ;
+.post-comments, span:before {
+    content: '';
     display: inline-block;
     border-left: 7px solid transparent;
     border-right: 7px solid #82b965;
@@ -59,12 +55,4 @@ span:before {
 
 .post:last-child {
     border: 0;
-}
-
-@media screen and (max-width: 768px) {
-    .post {
-        width: 100%;
-        float: left;
-        height: 500px;
-    }
 }

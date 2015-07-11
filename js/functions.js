@@ -70,7 +70,7 @@ function printRelatedLabels_thumbs() {
         document.write('<h2 class="relatedpost" >' + relatedpoststitle + ' </h2><br/>');
         document.write('<div class="related-content" style="clear: both;margin-right: -3.5%;" />');
         while (i < relatedTitles.length && i < 50 && i < maxresults) {
-            document.write(' < a style = "width:30%;text-decoration:none;margin:0 18px 18px 0;float:left;');
+            document.write(' <a style = "width:30%;text-decoration:none;margin:0 18px 18px 0;float:left;');
             if (i != 0) document.write('"');
             else document.write('"'); document.write('href="' + relatedUrls[r] + '"><img style="width:100%;height:160px;max-height:200px;padding:0;" src="' + thumburl[r] + '"/><br/><div class="relatedtitle" style="width:90%;padding-left:3px;height:60px;text-align:center;margin:8px 0px; line-height:18px;font-size:100%;">' + relatedTitles[r] + '</div></a>');
             if (r < relatedTitles.length - 1) {
