@@ -56,3 +56,7 @@
 .post:last-child {
     border: 0;
 }
+
+.post img {
+    width: 100%;
+}
