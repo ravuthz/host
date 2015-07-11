@@ -19,7 +19,9 @@ Responsive styles
 .menu {
     display: none;
 }
-
+#adajaxmenu .menu {
+    display: block;
+}
 @media screen and (max-width: 1260px) {
     #content {
         width: 68%;
