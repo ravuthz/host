@@ -46,9 +46,12 @@ console.info('single.js loaded.');
         ptag += '</div></div>';
 
         url += '&start-index=' + cp + '&orderby=published';
-        ajaxGet(url, function(data){
-            $('.blog-posts.hfeed').html(listPosts(data));
-            $('#Blog1').append(ptag);
+        
+        $(function(){
+        	ajaxGet(url, function(data){
+	            $('.blog-posts.hfeed').html(listPosts(data));
+	            $('#Blog1').append(ptag);
+	        });
         });
 
         console.info('page : ', cp);
