@@ -135,7 +135,7 @@
                 title = limitedText(post.title.$t, 22),
                 image = formatImage(post.media$thumbnail),
                 comment = '0',
-                content = '',
+                content = '';
 
             tags.push('<div class="post hentry"><div class="post-body entry-content">');
             tags.push('<div class="body-post"><span id="', id,'">');
@@ -148,7 +148,7 @@
             tags.push('<div class="entry-container"><p>', content, '</p></div></span>');
             
             tags.push('<div class="clearfix"></div>');
-            tag.push('</span></div></div></div>');
+            tags.push('</span></div></div></div>');
         }
         if(selector)
             return tags.join("");
