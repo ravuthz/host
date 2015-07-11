@@ -237,9 +237,15 @@ function printRelatedLabels_thumbs() {
             tags.push('<div class="post-meta date">', date, '</div>');
             tags.push('<h2 class="index-title">', '<a href="', link, '">', title, '</a></h2>');
             tags.push('<div class="entry-container"><p>', content, '</p></div></span>');
+            
+            // tags.push('<div class="clearfix"></div>');
             tags.push('</span></div></div></div>');
         }
         return tags.join("");
+        // if(selector)
+        //     return tags.join("");
+        // else
+        //     $('.blog-posts.hfeed').html(tags.join(""));
     };
 
 })(jQuery, window); /* main scope for jQuery and Window */
