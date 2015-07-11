@@ -6,7 +6,7 @@ console.info('default.js loaded.');
             $('#adajaxmenu li:not(.menu)').slideToggle('slow');
         });
 
-        var blog_id = '5615873936899142487', max_posts = 40;
+        var blog_id = '5615873936899142487', max_posts = 9;
         var url = 'https://www.blogger.com/feeds/' + blog_id +'/posts/default?alt=json&max-results=' + max_posts + '&orderby=published';
         ajaxGet(url, function(data){
             var posts = data.feed.entry;
@@ -26,16 +26,6 @@ console.info('default.js loaded.');
                 $(this).show();
             });
         });
-
-        // var x="<data:post.title/>",y="<data:post.url/>",t="<data:post.timestamp/>",
-        //     u="<data:post.numComments/>";rm("p<data:post.id/>");                  
-
-        // var window[object+"<data:post.id/>"] = {
-        //   title: "<data:post.title/>",
-        //   link: "<data:post.url/>",
-        //   date: "<data:post.timestamp/>",
-        //   comment: "<data:post.numComments/>"
-        // };
 
     });
 
