@@ -5,9 +5,11 @@ console.info('single.js loaded.');
 		var blog_id = '5615873936899142487', max_posts = 9;
         var url = 'https://www.blogger.com/feeds/' + blog_id +'/posts/default?alt=json&max-results=' + max_posts + '&orderby=published';
         ajaxGet(url, function(data){
-            var x = listPosts(data);
+            var x = listPosts(data),
+            	y = listPagers();
             $('.blog-posts.hfeed').html(x);
-            $('#Blog1').append('hello');
+            $('#Blog1').append(y);
+
         });
 
 

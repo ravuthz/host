@@ -1,4 +1,3 @@
-
 var relatedTitles = new Array();
 var relatedTitlesNum = 0;
 var relatedUrls = new Array();
@@ -68,27 +67,29 @@ function printRelatedLabels_thumbs() {
     var i = 0;
     if (relatedTitles.length > 0)
         document.write('<h2 class="relatedpost" >' + relatedpoststitle + ' </h2><br/>');
-        document.write('<div class="related-content" style="clear: both;margin-right: -3.5%;" />');
-        while (i < relatedTitles.length && i < 50 && i < maxresults) {
-            document.write(' <a style = "width:30%;text-decoration:none;margin:0 18px 18px 0;float:left;');
-            if (i != 0) document.write('"');
-            else document.write('"'); document.write('href="' + relatedUrls[r] + '"><img style="width:100%;height:160px;max-height:200px;padding:0;" src="' + thumburl[r] + '"/><br/><div class="relatedtitle" style="width:90%;padding-left:3px;height:60px;text-align:center;margin:8px 0px; line-height:18px;font-size:100%;">' + relatedTitles[r] + '</div></a>');
-            if (r < relatedTitles.length - 1) {
-                r++;
-            } else {
-                r = 0;
-            }
-            i++;
+    document.write('<div class="related-content" style="clear: both;margin-right: -3.5%;" />');
+    while (i < relatedTitles.length && i < 50 && i < maxresults) {
+        document.write(' <a style = "width:30%;text-decoration:none;margin:0 18px 18px 0;float:left;');
+        if (i != 0) document.write('"');
+        else document.write('"');
+        document.write('href="' + relatedUrls[r] + '"><img style="width:100%;height:160px;max-height:200px;padding:0;" src="' + thumburl[r] + '"/><br/><div class="relatedtitle" style="width:90%;padding-left:3px;height:60px;text-align:center;margin:8px 0px; line-height:18px;font-size:100%;">' + relatedTitles[r] + '</div></a>');
+        if (r < relatedTitles.length - 1) {
+            r++;
+        } else {
+            r = 0;
         }
-        document.write('</div>');
-        relatedUrls.splice(0, relatedUrls.length);
-        thumburl.splice(0, thumburl.length);
-        relatedTitles.splice(0, relatedTitles.length);
+        i++;
+    }
+    document.write('</div>');
+    relatedUrls.splice(0, relatedUrls.length);
+    thumburl.splice(0, thumburl.length);
+    relatedTitles.splice(0, relatedTitles.length);
 }
 
 
 
-;(function($) { /* main scope for jQuery and Window */
+;
+(function($) { /* main scope for jQuery and Window */
 
     // featurePosts({
     //  selector: '#result',
@@ -120,7 +121,7 @@ function printRelatedLabels_thumbs() {
         return str.length > num ? str.substring(0, num) + ' ... ' : str;
     };
 
-    window.formatTitle = function(entry){
+    window.formatTitle = function(entry) {
         return (entry.title.type == 'html') ? entry.title.$t : escape(entry.title.$t);
     }
 
@@ -212,12 +213,12 @@ function printRelatedLabels_thumbs() {
         });
     };
 
-    window.listPosts = function(json, selector){
+    window.listPosts = function(json, selector) {
         var tags = [],
             post = {},
             posts = json.feed.entry || [];
 
-        for(var i=0; i<posts.length; i++){
+        for (var i = 0; i < posts.length; i++) {
             var post = posts[i];
 
             var id = formatId(post.id.$t),
@@ -229,7 +230,7 @@ function printRelatedLabels_thumbs() {
                 content = '';
 
             tags.push('<div class="post hentry"><div class="post-body entry-content">');
-            tags.push('<div class="body-post"><span id="', id,'">');
+            tags.push('<div class="body-post"><span id="', id, '">');
 
             tags.push('<div class="entry-image"><a href="', link, '">');
             tags.push('<img class="thumb" src="', image, '"/></a></div>');
@@ -245,5 +246,20 @@ function printRelatedLabels_thumbs() {
         // else
         //     $('.blog-posts.hfeed').html(tags.join(""));
     };
+
+    < div class = "blog-pager"
+    id = "blog-pager" > < div class = "showpageArea" > < span style = "COLOR: #000;"
+    class = "showpageOf" > Pages(3) < /span><span class="showpagePoint">1</span > < span class = "showpageNum" > < a href = "/search?updated-max=2014-11-02T19%3A10%3A00%2B07%3A00&amp;max-results=9" > 2 < /a></span > < span class = "showpageNum" > < a href = "/search?updated-max=2014-09-18T02%3A49%3A00%2B07%3A00&amp;max-results=9" > 3 < /a></span > < span class = "showpage" > < a href = "/search?updated-max=2014-11-02T19%3A10%3A00%2B07%3A00&amp;max-results=9" > Next < /a></span > < /div></div >
+        window.listPagers = function() {
+            var tags = [];
+            tags.push('<div class="blog-pager" id="blog-pager"><div class="showpageArea">');
+            tags.push('<span class="showpageOf">Pages(3)</span>');
+            tags.push('<span class="showpagePoint">', 1,'</a></span>');
+            tags.push('<span class="showpageNum"><a href="', url ,'">',2 ,'</a></span>');
+            tags.push('<span class="showpageNum"><a href="', url ,'">',3 ,'</a></span>');
+            tags.push('<span class="showpageNum"><a href="', url ,'">',4 ,'</a></span>');
+            tags.push('</div></div>');
+            return tags.join("");
+        }
 
 })(jQuery, window); /* main scope for jQuery and Window */
