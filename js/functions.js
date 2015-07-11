@@ -238,7 +238,7 @@ function printRelatedLabels_thumbs() {
             tags.push('<h2 class="index-title">', '<a href="', link, '">', title, '</a></h2>');
             tags.push('<div class="entry-container"><p>', content, '</p></div></span>');
             
-            tags.push('<div class="clearfix"></div>');
+            // tags.push('<div class="clearfix"></div>');
             tags.push('</span></div></div></div>');
         }
         return tags.join("");
