@@ -33,8 +33,8 @@ console.info('single.js loaded.');
         var ptag = '<div class="blog-pager" id="blog-pager"><div class="showpageArea">';
         
         ptag += '<span class="showpageOf">Pages(' + tp + ')</span>';
-        for(var i=1; i<=tp; i++){
-        	if(cp == i){
+        for(var p=1; p<=tp; p++){
+        	if(cp == p){
         		ptag += '<span class="showpagePoint"><a href="javascript:page(' + tp + ',' + p + ')">' + p + '</a></span>';
         	} else {
         		ptag += '<span class="showpageNum"><a href="javascript:page(' + tp + ',' + p + ')">' + p + '</a></span>';
