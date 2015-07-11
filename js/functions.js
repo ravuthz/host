@@ -125,7 +125,7 @@
     window.listPosts = function(json, selector){
         var tags = [],
             post = {},
-            posts = json.feed.entry;
+            posts = json.feed.entry || [];
 
         for(var i=0; i<posts.length; i++){
             var post = posts[i];

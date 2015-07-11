@@ -11,7 +11,7 @@ console.info('default.js loaded.');
         ajaxGet(url, function(data){
             // var posts = data.feed.entry;
 
-            listPosts(data.feed.entry);
+            listPosts(data);
 
             // $('.body-post span').each(function(){
             //     var postTags = makePost({
