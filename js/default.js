@@ -79,10 +79,10 @@ console.info('default.js loaded.');
 
 
 
-    // $('#adajaxmenu').ajaxBloggerMenu({
-    //     numPosts: 4, // Number of Posts to show
-    //     defaultImg: 'http://2.bp.blogspot.com/-BNRsAWPapHM/VY0FFPt97YI/AAAAAAAAB9Y/tyZ_UBgPEg4/s1600/no-image.png' // Default thumbnail Image
-    // });
+    $('#adajaxmenu').ajaxBloggerMenu({
+        numPosts: 4, // Number of Posts to show
+        defaultImg: 'http://2.bp.blogspot.com/-BNRsAWPapHM/VY0FFPt97YI/AAAAAAAAB9Y/tyZ_UBgPEg4/s1600/no-image.png' // Default thumbnail Image
+    });
 
     /* Search button event */
     $('.searchblog').submit(function(e) {

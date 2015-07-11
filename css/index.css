@@ -1,0 +1,70 @@
+#blog-pager {
+    border-top: 1px solid #eee;
+    border-bottom: 0;
+    margin: 10px 0;
+    padding: 15px 0 5px;
+}
+
+.post-comments {
+    background: #82b965;
+    font-size: 12px;
+    line-height: 20px;
+    color: #fff;
+    display: block;
+    position: absolute;
+    top: 25px;
+    right: 0;
+    -webkit-box-shadow: inset -1px 0 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset -1px 0 1px rgba(0, 0, 0, 0.2);
+}
+
+.post-comments &gt;
+span {
+    display: block;
+    position: relative;
+    padding: 2px 7px;
+}
+
+.post-comments i {
+    margin-right: 3px;
+}
+
+.post-comments &gt;
+span:before {
+    content: &#39;
+    &#39;
+    ;
+    display: inline-block;
+    border-left: 7px solid transparent;
+    border-right: 7px solid #82b965;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    position: absolute;
+    top: 5px;
+    left: -14px;
+}
+
+#blog-pager h5 {
+    font-size: 18px;
+}
+
+.post {
+    width: 33.33%; //50%;
+    float: left;
+    height: 340px;
+    margin: 0;
+    padding: 3% 0 0;
+    border-bottom: 1px solid #eee;
+}
+
+.post:last-child {
+    border: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .post {
+        width: 100%;
+        float: left;
+        height: 500px;
+    }
+}

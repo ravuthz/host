@@ -9,6 +9,8 @@ console.info('single.js loaded.');
             $('.blog-posts.hfeed').html(x);
         });
 
+        
+
 	});
 
 
