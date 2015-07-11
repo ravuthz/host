@@ -241,10 +241,6 @@ function printRelatedLabels_thumbs() {
             tags.push('</span></div></div></div>');
         }
         return tags.join("");
-        // if(selector)
-        //     return tags.join("");
-        // else
-        //     $('.blog-posts.hfeed').html(tags.join(""));
     };
 
     window.listPagers = function() {
