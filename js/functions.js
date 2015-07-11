@@ -22,7 +22,7 @@
                 link = link[2].href,
                 title = limitedText(post.title.$t, 22),
                 image = formatImage(post.media$thumbnail),
-                comment = ,
+                comment = '0',
                 content = '',
 
             tags.push('<div class="post hentry"><div class="post-body entry-content">');
