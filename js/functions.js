@@ -86,7 +86,7 @@
         blogLink += '/-/' + labelName;
         blogLink += '?alt=json&max-results=' + numPosts + '&orderby=published';
 
-        ajaxGet(blogLink, var(data) {
+        ajaxGet(blogLink, function(data) {
             var tag = '',
                 imageSize = 100,
                 titleNumChars = p.titleMaxChars || 20,
