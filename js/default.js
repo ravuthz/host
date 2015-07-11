@@ -9,34 +9,50 @@ console.info('default.js loaded.');
         var blog_id = '5615873936899142487', max_posts = 9;
         var url = 'https://www.blogger.com/feeds/' + blog_id +'/posts/default?alt=json&max-results=' + max_posts + '&orderby=published';
         ajaxGet(url, function(data){
-            var posts = data.feed.entry;
-            $('.body-post span').each(function(){
-                var postTags = makePost({
-                    'title': posts[0].title.$t,
-                    'link': posts[0].link[2].href,
-                    'date': '10:00',
-                    'comment' : '0',
-                    'content': '...'
-                });
-                $(this).html(postTags);
-                // var script = $(this).next();
-                // console.error(script);
-                // console.error(script);
-                // $(this).siblings('script').remove();
-                $(this).show();
-            });
+            // var posts = data.feed.entry;
+
+            listPosts(data.feed.entry);
+
+            // $('.body-post span').each(function(){
+            //     var postTags = makePost({
+            //         'title': posts[0].title.$t,
+            //         'link': posts[0].link[2].href,
+            //         'date': '10:00',
+            //         'comment' : '0',
+            //         'content': '...'
+            //     });
+            //     $(this).html(postTags);
+            //     // var script = $(this).next();
+            //     // console.error(script);
+            //     // console.error(script);
+            //     // $(this).siblings('script').remove();
+            //     $(this).show();
+            // });
         });
 
     });
 
-    function makePost(post){
-        var tags = [];
-        tags.push('<div class="entry-image"><a href="', post.link, '">');
-        tags.push('<img class="thumb" src="', post.thumb, '"/></a></div>');
-        tags.push('<div class="post-comments"><span><i class="fa fa-comments-o"></i>', post.comment, '</span></div>');
-        tags.push('<div class="post-meta date">', post.date, '</div>');
-        tags.push('<h2 class="index-title">', '<a href="', post.link, '">', post.title, '</a></h2>');
-        tags.push('<div class="entry-container"><p>', post.content, '</p></div>');
+
+
+
+
+
+
+    function makePost(json){
+        var tags = [],
+            post = {},
+            posts = json.feed.entry;
+
+        for(var i=0; i<posts.length; i++){
+            tags.push('<div class="entry-image"><a href="', post.link, '">');
+            tags.push('<img class="thumb" src="', post.thumb, '"/></a></div>');
+            tags.push('<div class="post-comments"><span><i class="fa fa-comments-o"></i>', post.comment, '</span></div>');
+            tags.push('<div class="post-meta date">', post.date, '</div>');
+            tags.push('<h2 class="index-title">', '<a href="', post.link, '">', post.title, '</a></h2>');
+            tags.push('<div class="entry-container"><p>', post.content, '</p></div>');
+            
+        }
+        
         return tags.join("");
     }
 
