@@ -272,4 +272,4 @@ console.info('default.js loaded.');
 
 
 
-})(jQuery);
+})(jQuery, window);
