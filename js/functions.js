@@ -244,7 +244,8 @@ function printRelatedLabels_thumbs() {
     };
 
     window.listPagers = function() {
-        var tags = [];
+        var tags = [], 
+            url = '#';
         tags.push('<div class="blog-pager" id="blog-pager"><div class="showpageArea">');
         tags.push('<span class="showpageOf">Pages(3)</span>');
         tags.push('<span class="showpagePoint">', 1,'</a></span>');
