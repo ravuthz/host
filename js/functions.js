@@ -1,4 +1,4 @@
-var releatePostFunction = (function(){
+window.releatePostFunction = (function(){
     var relatedTitles = new Array();
     var relatedTitlesNum = 0;
     var relatedUrls = new Array();
