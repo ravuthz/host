@@ -132,6 +132,7 @@
 
             var id = formatId(post.id.$t),
                 link = post.link[2].href,
+                date = formatDate(post.published.$t),
                 title = limitedText(post.title.$t, 22),
                 image = formatImage(post.media$thumbnail),
                 comment = '0',
