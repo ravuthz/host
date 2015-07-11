@@ -131,7 +131,7 @@
             var post = posts[i];
 
             var id = formatId(post.id.$t),
-                link = link[2].href,
+                link = post.link[2].href,
                 title = limitedText(post.title.$t, 22),
                 image = formatImage(post.media$thumbnail),
                 comment = '0',
