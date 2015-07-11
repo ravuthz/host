@@ -13,6 +13,7 @@ console.info('default.js loaded.');
             console.log('data: ', data);
             var x = listPosts(data);
             console.log('tags : ', x);
+            $('.blog-posts.hfeed').html(x);
 
             // $('.body-post span').each(function(){
             //     var postTags = makePost({
@@ -32,11 +33,6 @@ console.info('default.js loaded.');
         });
 
     });
-
-
-
-
-
 
 
     function makePost(json){
