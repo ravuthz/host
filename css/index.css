@@ -29,7 +29,7 @@
 }
 
 .post-comments > span:before {
-    content: '';
+    content: '&#39;&#39;;';
     display: inline-block;
     border-left: 7px solid transparent;
     border-right: 7px solid #82b965;
@@ -55,4 +55,11 @@
 
 .post:last-child {
     border: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .post {
+        width: 100%;
+        float: left;
+    }
 }
