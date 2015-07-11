@@ -39,7 +39,9 @@ console.info('single.js loaded.');
         }
         ptag += '</div></div>';
 
-        url += '&start-index=' + (cp =< 1 ? 1 : (cp * max_posts)) + '&orderby=published';
+        cp = cp <= 1 ? 1 : (cp * max_posts);
+
+        url += '&start-index=' + cp + '&orderby=published';
 
         ajaxGet(url, function(data){
             $('.blog-posts.hfeed').html(listPosts(data));
