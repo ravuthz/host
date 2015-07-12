@@ -33,7 +33,7 @@ console.info('single.js loaded.');
 
         cp = cp <= 1 ? 1 : ((cp-1) * max_posts);
 
-        var ptag = '<div class="blog-pager" id="blog-pager"><div class="showpageArea">';
+        var ptag = '<div class="showpageArea">';
         
         ptag += '<span class="showpageOf">Pages(' + tp + ')</span>';
         for(var p=1; p<=tp; p++){
@@ -43,7 +43,7 @@ console.info('single.js loaded.');
         		ptag += '<span class="showpageNum"><a href="javascript:" onclick="page(' + p + ',' + tp + ');">' + p + '</a></span>';
         	}
         }
-        ptag += '</div></div>';
+        ptag += '</div>';
 
         var link = url + '&start-index=' + cp + '&orderby=published';
 

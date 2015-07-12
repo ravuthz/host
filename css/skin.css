@@ -45,11 +45,11 @@ table {
     display: inline-block;
 }
 /* Hide from IE Mac \*/
- .clearfix {
+.clearfix {
     display: block;
 }
 /* End hide from IE Mac */
- .none {
+.none {
     display: none;
 }
 /* End Clearfix */

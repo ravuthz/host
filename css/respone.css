@@ -233,8 +233,7 @@ Responsive styles
 Hiding Header Date and Feed Links
 ******************************************/
 
-h2.date-header,
-span.blog-admin {
+h2.date-header, span.blog-admin {
     display: none!important;
 }
 
