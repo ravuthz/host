@@ -1270,7 +1270,8 @@ body > div.header-wrapper > div > div.banner {
 }
 
 .jspArrow {
-    background: #888;
+    /*background: #888;*/
+    background-color: #3b8dbd; 
     /* The color of the scrollbar limits */
     
     text-indent: -20000px;
