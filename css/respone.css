@@ -100,12 +100,11 @@ Responsive styles
     #adajaxmenu li a {
         text-align: center;
     }
-    #adajaxmenu li ul {
+    #adajaxmenu li ul, #beakingnews .tulisbreaking {
         display: none;
     }
     .post {
         width: 50% !important;
-        ;
     }
     .sidebar .widget {
         float: left;
@@ -122,6 +121,7 @@ Responsive styles
     #content {
         width: 100%;
     }
+
     /*     .header-inner-wrap {
         float: none
     }
