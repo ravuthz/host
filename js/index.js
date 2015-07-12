@@ -16,6 +16,17 @@ console.info('index.js loaded.');
 
  //        });
 	// });
+
+    $(function(){
+        
+        $('#btnSearch').click(function(){
+            var url = '/search?q=' + $('#txtSearch').val();
+            $.get(url, function(data){
+                console.log('data : ', data);
+            });
+        });
+    });
+
     
 	window.showpageCount = function(json){
 		var entry = json.feed.entry.length; //19
