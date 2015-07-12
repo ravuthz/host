@@ -27,14 +27,12 @@ console.info('single.js loaded.');
 	};
 
 	window.page = function(cpage, tpost) {
-
         var cp = parseInt(cpage),
         	tp = tpost;
 
         cp = cp <= 1 ? 1 : ((cp-1) * max_posts);
 
         var ptag = '<div class="showpageArea">';
-        
         ptag += '<span class="showpageOf">Pages(' + tp + ')</span>';
         for(var p=1; p<=tp; p++){
         	if(cp == p){
