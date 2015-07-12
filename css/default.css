@@ -1247,14 +1247,14 @@ body > div.header-wrapper > div > div.banner {
 }
 
 .jspTrack {
-    background: #fff;
+    background: #ddd;
     /* background color of the bar */
     
     position: relative;
 }
 
 .jspDrag {
-    background: #CC0000;
+    background-color: #3b8dbd;
     /* Color of the scrollbar */
     
     position: relative;
@@ -1286,11 +1286,11 @@ body > div.header-wrapper > div > div.banner {
 }
 
 .jspVerticalBar .jspArrow {
-    height: 16px;
+    height: 10px;
 }
 
 .jspHorizontalBar .jspArrow {
-    width: 16px;
+    width: 10px;
     float: left;
     height: 100%;
 }
