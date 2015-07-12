@@ -20,8 +20,8 @@ console.info('single.js loaded.');
 		var entry = json.feed.entry.length; //19
 		var cpost = json.feed.openSearch$startIndex.$t;//1
 		var tpost = json.feed.openSearch$totalResults.$t || json.feed.entry.length;//19
-		console.log('json', json);
-
+		
+        tpost = Math.ceil(parseInt(tpost) / max_posts);
 		page(cpage, tpost);
 
 	};
@@ -29,7 +29,7 @@ console.info('single.js loaded.');
 	window.page = function(cpage, tpost) {
 
         var cp = parseInt(cpage),
-        	tp = Math.ceil(parseInt(tpost) / max_posts);
+        	tp = tpost;
 
         cp = cp <= 1 ? 1 : ((cp-1) * max_posts);
 
