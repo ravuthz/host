@@ -234,7 +234,7 @@ function printRelatedLabels_thumbs() {
 
             tags.push('<div class="entry-image"><a href="', link, '">');
             tags.push('<img class="thumb" src="', image, '"/></a></div>');
-            tags.push('<div class="post-comments"><span><i class="fa fa-comments-o"></i>', comment, '</span></div>');
+            // tags.push('<div class="post-comments"><span><i class="fa fa-comments-o"></i>', comment, '</span></div>');
             tags.push('<div class="post-meta date">', date, '</div>');
             tags.push('<h2 class="index-title">', '<a href="', link, '">', title, '</a></h2>');
             tags.push('<div class="entry-container"><p>', content, '</p></div></span>');

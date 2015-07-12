@@ -53,10 +53,11 @@
     border-bottom: 1px solid #eee;
 }
 
-.post:last-child {
+/*.post:last-child {
     border: 0;
-}
+}*/
 
 .post img {
     width: 100%;
+    border: 1px solid #ddd;
 }
