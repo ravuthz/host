@@ -1190,7 +1190,6 @@ animation: snow 20s linear infinite;
 
 
 /* scroll pane style */
-<style>
 .jspContainer {overflow: hidden;position: relative;}.jspPane {position: absolute;}
 .jspVerticalBar {position: absolute;top: 0;right: 0;width: 16px;height: 100%;background: #ccc;}
 .jspHorizontalBar {position: absolute;bottom: 0;left: 0;width: 100%;height: 16px;background: #ccc;}
@@ -1243,5 +1242,4 @@ margin: 0;
 padding: 0;
 overflow: auto;
 }
-</style>
 /* end scroll pane style */
