@@ -20,7 +20,8 @@ console.info('index.js loaded.');
     $(function(){
         
         $('#btnSearch').click(function(){
-            var url = '/search?q=' + $('#txtSearch').val();
+            // var url = '/search?q=' + $('#txtSearch').val();
+            var url = '/feeds/posts/default?q=' + $('#txtSearch').val() + '&alt=json&max-results=' + max_posts;
             $.get(url, function(data){
                 console.log('data : ', data);
             });
