@@ -32,7 +32,6 @@ console.info('index.js loaded.');
 
         cp = (cp <= 1) ? 1 : ((cp-1) * max_posts);
 
-        // var link = url + '&start-index=' + cp + '&orderby=published';
         var url = feed + max_posts + '&start-index=' + cp + '&orderby=published';
 
         $(function(){
@@ -115,7 +114,6 @@ console.info('index.js loaded.');
         /*return defaultImage.replace(/\/s[0-9]+(\-c|\/)/, "/s" + imageSize + "$1");*/
         return defaultImage;
     };
-
 
 })(jQuery, window);
 
