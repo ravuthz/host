@@ -54,7 +54,7 @@ console.info('default.js loaded.');
             var url = '/feeds/posts/summary/-/' + label + '?alt=json&max-results=' + max_posts + '&start-index=' + cpage + '&orderby=published'
             $.get(url, function(data){
                 console.log('data menu', data);
-                $('.blog-posts.hfeed').html(listPosts(data.feed.entry));
+                $('#Blog1').html(listPosts(data.feed.entry));
                 search(data, cpage);
             });
         });
@@ -63,7 +63,7 @@ console.info('default.js loaded.');
            keyword = $('#txtSearch').val();
             var url = '/feeds/posts/default?q=' + keyword + '&alt=json&max-results=' + max_posts + '&start-index=' + cpage + '&orderby=published';
             $.get(url, function(data){
-                $('.blog-posts.hfeed').html(listPosts(data));
+                $('#Blog1').html(listPosts(data));
                 console.log('data search : ', data);
                 
                search(data, cpage);

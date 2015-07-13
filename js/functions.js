@@ -228,7 +228,7 @@ function printRelatedLabels_thumbs() {
                 image = formatImage(post.media$thumbnail),
                 comment = '0',
                 content = '';
-
+            tags.push('<div class="blog-posts hfeed">');
             tags.push('<div class="post hentry"><div class="post-body entry-content">');
             tags.push('<div class="body-post"><span id="', id, '">');
 
@@ -238,11 +238,11 @@ function printRelatedLabels_thumbs() {
             tags.push('<div class="post-meta date">', date, '</div>');
             tags.push('<h2 class="index-title">', '<a href="', link, '">', title, '</a></h2>');
             tags.push('<div class="entry-container"><p>', content, '</p></div></span>');
-            tags.push('</span></div></div></div>');
+            tags.push('</span></div></div></div></div>');
+            tags.push('<div class="clearfix" id="blog-pager"></div>');
+            tags.push('<script type="text/javascript">window.___gcfg = {"lang": "en"};</script>');
         }
         return tags.join("");
     };
-
-    
 
 })(jQuery, window); /* main scope for jQuery and Window */

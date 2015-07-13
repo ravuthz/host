@@ -12,7 +12,7 @@ console.info('index.js loaded.');
  //        ajaxGet(url + '&orderby=published', function(data){
  //            var x = listPosts(data),
  //            	y = listPagers();
- //            $('.blog-posts.hfeed').html(x);
+ //            $('#Blog1').html(x);
  //            $('#Blog1').append(y);
 
  //        });
@@ -52,7 +52,7 @@ console.info('index.js loaded.');
 
         $(function(){
         	ajaxGet(url, function(data){
-	            $('.blog-posts.hfeed').html(listPosts(data.feed.entry));
+	            $('#Blog1').html(listPosts(data.feed.entry));
 	            $('#blog-pager').html(ptag);
 	        });
         });
