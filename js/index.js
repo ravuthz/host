@@ -80,6 +80,44 @@ console.info('index.js loaded.');
         return tags.join("");
     };
 
+    /* json.feed.entry format */
+    window.limitedText = function(str, num) {
+        if (!num) return str;
+        return str.length > num ? str.substring(0, num) + ' ... ' : str;
+    };
+
+    window.formatTitle = function(entry) {
+        return (entry.title.type == 'html') ? entry.title.$t : escape(entry.title.$t);
+    }
+
+    window.formatId = function(id) {
+        // "tag:blogger.com,1999:blog-5615873936899142487.post-118256394100900487"
+        var blogIndex = id.indexOf("blog-"), //5
+            postIndex = id.indexOf("post-"); //5
+
+        if (blogIndex != -1 && postIndex != -1) {
+            blogid = id.substring(blogIndex + 5, id.length - (postIndex - 1));
+            postid = id.substring(postIndex + 5, id.length);
+
+            // console.log('blog id ' + blogid);
+            // console.log('post id ' + postid);
+            return postid; //;[blogid,postid];
+        }
+        return [];
+    };
+
+    window.formatImage = function(img, def) {
+        var imageSize = 500;
+        var defaultImage = def || 'http://2.bp.blogspot.com/-BNRsAWPapHM/VY0FFPt97YI/AAAAAAAAB9Y/tyZ_UBgPEg4/s1600/no-image.png';
+
+        if (img) {
+            /*return img.url.replace(/\/s[0-9]+\-c/g, "/s" + imageSize + "-c");*/
+            return img.url.replace(/\/s[0-9]+\-c/g, "");
+        }
+        /*return defaultImage.replace(/\/s[0-9]+(\-c|\/)/, "/s" + imageSize + "$1");*/
+        return defaultImage;
+    };
+
 
 })(jQuery, window);
 
