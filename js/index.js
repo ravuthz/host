@@ -115,6 +115,18 @@ console.info('index.js loaded.');
         return defaultImage;
     };
 
+    window.formatDate = function(dat, fmt) {
+        var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        var dt;
+
+        if (fmt) {
+            dt = new Date(dat);
+            return dt.toLocaleDateString(fmt);
+        }
+        dt = dat.substring(0, 10); /* 2014-11-30T18:31:00.001+07:00 */
+        return months[dt.substring(5, 7) - 1] + ', ' + dt.substring(8, 10) + ' ,' + dt.substring(0, 4);
+    };
+
 })(jQuery, window);
 
 
