@@ -91,9 +91,6 @@ Responsive styles
         width: 100%;
         background-color: #33363B;
     }
-    #adajaxmenu li:not(.menu) {
-        display: block;
-    }
     #adajaxmenu li {
         display: none;
     }

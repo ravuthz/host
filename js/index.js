@@ -2,7 +2,8 @@ console.info('index.js loaded.');
 
 ;(function($){
 	var max_posts = 9,
-		cpage = 1;
+		cpage = 1,
+        show_page = 2;
 
     var url, feed = '/feeds/posts/default?alt=json&max-results=';
     
@@ -25,7 +26,11 @@ console.info('index.js loaded.');
         	if(cp == p){
         		ptag += '<span class="showpagePoint"><a href="javascript:" onclick="page(' + p + ',' + tp + ');">' + p + '</a></span>';
         	} else {
-        		ptag += '<span class="showpageNum"><a href="javascript:" onclick="page(' + p + ',' + tp + ');">' + p + '</a></span>';
+        		if(p >= show_page){
+                    ptag += '<span class="hidepageNum"><a href="javascript:" onclick="page(' + p + ',' + tp + ');">' + p + '</a></span>';    
+                } else {
+                    ptag += '<span class="showpageNum"><a href="javascript:" onclick="page(' + p + ',' + tp + ');">' + p + '</a></span>';    
+                }
         	}
         }
         ptag += '</div>';

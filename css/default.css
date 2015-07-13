@@ -586,6 +586,10 @@ a.g-profile {
     color: #3b8dbd;
 }
 
+.hidepageNum {
+    display: none;
+}
+
 .home-link,
 .showpageOf {
     display: none;
