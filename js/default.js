@@ -84,7 +84,7 @@ console.info('default.js loaded.');
         var tposts = json.feed.openSearch$totalResults.$t; // total posts
         var ipage = json.feed.openSearch$itemsPerPage.$t;  //9
         var cpage = current_page ? parseInt(current_page) : 1;
-        var tpages = Math.ceil(tposts / ppage);
+        var tpages = Math.ceil(tposts / ipage);
         
 
         var ptag = '<div class="showpageArea">';
