@@ -28,7 +28,6 @@ console.info('index.js loaded.');
 		
         tpost = Math.ceil(parseInt(tpost) / max_posts);
 		page(cpage, tpost);
-
 	};
 
 	window.page = function(cpage, tpost) {

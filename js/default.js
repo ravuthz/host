@@ -2,7 +2,8 @@ console.info('default.js loaded.');
 
 ;(function($) {
     var max_posts = 9,
-        break_news_posts = 40;
+        break_news_posts = 40,
+        cpage = 1;
 
     var url, feed = '/feeds/posts/default?alt=json&max-results=';
 
@@ -10,15 +11,13 @@ console.info('default.js loaded.');
         $('#adajaxmenu .menu a').on('click', function(){
             $('#adajaxmenu li:not(.menu)').slideToggle('slow');
         });
-
+ // var url = url_blog + '/feeds/posts/default?alt=json&max-results=' + numpostx + '&orderby=published';
+        // /feeds/posts/summary?alt=json-in-script&amp;callback=showpageCount&amp;max-results=99999
     
         /* Breaking News Script */
-        // var url = url_blog + '/feeds/posts/default?alt=json&max-results=' + numpostx + '&orderby=published';
-        // /feeds/posts/summary?alt=json-in-script&amp;callback=showpageCount&amp;max-results=99999
        
-        // var url = 'https://www.blogger.com/feeds/' + blog_id +'/posts/default?alt=json&max-results=' + max_posts;
-        url = '/feeds/posts/default?alt=json&max-results=' + break_news_posts;
-        ajaxGet(url + '&orderby=published', function(data){
+        url = feed + break_news_posts + '&orderby=published';
+        ajaxGet(url, function(data){
             var posts = data.feed.entry;
             if(posts) {
                 var tag = "<ul>";
@@ -53,19 +52,13 @@ console.info('default.js loaded.');
 
         $('#btnSearch').click(function(){
             // var url = '/search?q=' + $('#txtSearch').val();
-            var url = '/feeds/posts/default?q=' + $('#txtSearch').val() + '&alt=json&max-results=' + max_posts;
+            var url = '/feeds/posts/default?q=' + $('#txtSearch').val() + '&alt=json&max-results=' + max_posts + '&start-index=' + cpage + '&orderby=published';
             $.get(url, function(data){
-                console.log('search data : ', data);
+                $('.blog-posts.hfeed').html(listPosts(data));
+
             });
         });
 
-        /* Search button event */
-        $('.searchblog').submit(function(e) {
-            if ($('.search-form .searchbar').val().length === 0) {
-                $('.search-form .search-alert').fadeIn().css('display', 'inline-block');
-                e.preventDefault();
-            }
-        });
 
 
         /* BackToTop button */
@@ -76,43 +69,44 @@ console.info('default.js loaded.');
             return false;
         });
         
-        
-        
+
 
         /* disable right on page */
         // $(document).bind("contextmenu",function(e){
         //     return false;
         // });
         
-        
-        /* list posts with pagination */
-        // var currentPage = 1, rowsPerPage = 9,
-        //     url = 'http://www.blogger.com/feeds/5615873936899142487/posts/default?alt=json';
-
-        // ajaxGet(url + '&max-results=' + rowsPerPage + '&start-index=' + currentPage,
-        // function(data){
-        //     pagePostHtml(data.feed.entry, '#blogPost2');
-        // });
-        
-        // $(document).on('click', '.item', function(e){
-        //     e.preventDefault();
-        //     var id = $(this).attr('id');
-        //     var post = get(id);
-            
-        //     var tag = '<article class="article">'
-        //         tag += '<header><h3>' + post.title.$t + '</h3></header>'
-        //         tag += '<main><img src="" alt="">'
-        //         tag += '<p>' + post.content.$t + '</p></main>'
-        //         tag += '<footer></footer></article>';
-        //     // $("#postOut").append(tag);
-        //     $("#postOut").html(tag);
-        //     $("#postOut").bPopup();
-        // });
-    
-
-        
-        
     }); /* //document ready */
+
+    window.search = function(cpage, tpost) {
+        var cp = parseInt(cpage),
+            tp = parseInt(tpost);
+
+        var ptag = '<div class="showpageArea">';
+        ptag += '<span class="showpageOf">Pages(' + tp + ')</span>';
+        for(var p=1; p<=tp; p++){
+            if(cp == p){
+                ptag += '<span class="showpagePoint"><a href="javascript:" onclick="search(' + p + ',' + tp + ');">' + p + '</a></span>';
+            } else {
+                ptag += '<span class="showpageNum"><a href="javascript:" onclick="search(' + p + ',' + tp + ');">' + p + '</a></span>';
+            }
+        }
+        ptag += '</div>';
+
+        cp = (cp <= 1) ? 1 : ((cp-1) * max_posts);
+
+        var url = '/feeds/posts/default?q=' + keyword + '&alt=json&max-results=9999&start-index=' + cp + '&orderby=published';
+
+        $(function(){
+            ajaxGet(url, function(data){
+                $('.blog-posts.hfeed').html(listPosts(data));
+                $('#blog-pager').html(ptag);
+            });
+        });
+
+        console.info('search page : ', cp);
+    }
+
 
     function set(name, value){
         localStorage.setItem(name, JSON.stringify(value));
