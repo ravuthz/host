@@ -20,11 +20,8 @@ Responsive styles
     height: auto;
 }
 
-.menu {
-    display: none;
-}
 #adajaxmenu .menu {
-    display: block;
+    display: none;
 }
 @media screen and (max-width: 1260px) {
     #content {

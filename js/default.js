@@ -1,22 +1,24 @@
 console.info('default.js loaded.');
 
 ;(function($) {
+    var max_posts = 9,
+        break_news_posts = 40;
+
+    var url, feed = '/feeds/posts/default?alt=json&max-results=';
+
     $(function(){
         $('#adajaxmenu .menu a').on('click', function(){
             $('#adajaxmenu li:not(.menu)').slideToggle('slow');
         });
 
-        
-
-
+    
         /* Breaking News Script */
-        // var url_blog = 'http://ravuthz.blogspot.com/', numpostx = 20; // Maximum Post
         // var url = url_blog + '/feeds/posts/default?alt=json&max-results=' + numpostx + '&orderby=published';
         // /feeds/posts/summary?alt=json-in-script&amp;callback=showpageCount&amp;max-results=99999
-        var blog_id = '5615873936899142487', max_posts = 40;
-        var url = 'https://www.blogger.com/feeds/' + blog_id +'/posts/default?alt=json&max-results=' + max_posts + '&orderby=published';
-        
-        ajaxGet(url, function(data){
+       
+        // var url = 'https://www.blogger.com/feeds/' + blog_id +'/posts/default?alt=json&max-results=' + max_posts;
+        url = '/feeds/posts/default?alt=json&max-results=' + break_news_posts;
+        ajaxGet(url + '&orderby=published', function(data){
             var posts = data.feed.entry;
             if(posts) {
                 var tag = "<ul>";
@@ -47,18 +49,14 @@ console.info('default.js loaded.');
             $('#recentpostbreaking').html('<strong>Error Loading Feed!</strong>');
         });
         /* //Breaking News Script */
-
-        /* BackToTop button */
-        $("a#back-to-top").click(function(){
-            $("html, body").animate({
-                scrollTop:0
-            },"slow");
-            return false;
-        });
         
-        $('#adajaxmenu').ajaxBloggerMenu({
-            numPosts: 4, // Number of Posts to show
-            defaultImg: 'http://2.bp.blogspot.com/-BNRsAWPapHM/VY0FFPt97YI/AAAAAAAAB9Y/tyZ_UBgPEg4/s1600/no-image.png' // Default thumbnail Image
+
+        $('#btnSearch').click(function(){
+            // var url = '/search?q=' + $('#txtSearch').val();
+            var url = '/feeds/posts/default?q=' + $('#txtSearch').val() + '&alt=json&max-results=' + max_posts;
+            $.get(url, function(data){
+                console.log('search data : ', data);
+            });
         });
 
         /* Search button event */
@@ -68,6 +66,18 @@ console.info('default.js loaded.');
                 e.preventDefault();
             }
         });
+
+
+        /* BackToTop button */
+        $("a#back-to-top").click(function(){
+            $("html, body").animate({
+                scrollTop:0
+            },"slow");
+            return false;
+        });
+        
+        
+        
 
         /* disable right on page */
         // $(document).bind("contextmenu",function(e){
@@ -99,8 +109,10 @@ console.info('default.js loaded.');
         //     $("#postOut").bPopup();
         // });
     
-    }); /* //document ready */
 
+        
+        
+    }); /* //document ready */
 
     function set(name, value){
         localStorage.setItem(name, JSON.stringify(value));

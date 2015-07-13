@@ -1,11 +1,12 @@
 console.info('index.js loaded.');
 
 ;(function($){
-	var blog_id = '5615873936899142487', 
-		max_posts = 9,
+	var max_posts = 9,
 		cpage = 1;
 
-	var url = 'https://www.blogger.com/feeds/' + blog_id + '/posts/default?alt=json&max-results=' + max_posts;
+    var url, feed = '/feeds/posts/default?alt=json&max-results=';
+
+	// var url = 'https://www.blogger.com/feeds/' + blog_id + '/posts/default?alt=json&max-results=' + max_posts;
 
 	// $(function(){
  //        ajaxGet(url + '&orderby=published', function(data){
@@ -17,16 +18,7 @@ console.info('index.js loaded.');
  //        });
 	// });
 
-    $(function(){
-        
-        $('#btnSearch').click(function(){
-            // var url = '/search?q=' + $('#txtSearch').val();
-            var url = '/feeds/posts/default?q=' + $('#txtSearch').val() + '&alt=json&max-results=' + max_posts;
-            $.get(url, function(data){
-                console.log('search data : ', data);
-            });
-        });
-    });
+    
 
     
 	window.showpageCount = function(json){
@@ -56,10 +48,11 @@ console.info('index.js loaded.');
 
         cp = (cp <= 1) ? 1 : ((cp-1) * max_posts);
 
-        var link = url + '&start-index=' + cp + '&orderby=published';
+        // var link = url + '&start-index=' + cp + '&orderby=published';
+        var url = feed + max_posts + '&start-index=' + cp + '&orderby=published';
 
         $(function(){
-        	ajaxGet(link, function(data){
+        	ajaxGet(url, function(data){
 	            $('.blog-posts.hfeed').html(listPosts(data));
 	            $('#blog-pager').html(ptag);
 	        });
