@@ -213,7 +213,7 @@ function printRelatedLabels_thumbs() {
         });
     };
 
-    window.listPosts = function(entry, selector) {
+    window.listPosts = function(entry) {
         var tags = [],
             post = {},
             posts = entry || [];

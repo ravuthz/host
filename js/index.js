@@ -5,21 +5,6 @@ console.info('index.js loaded.');
 		cpage = 1;
 
     var url, feed = '/feeds/posts/default?alt=json&max-results=';
-
-	// var url = 'https://www.blogger.com/feeds/' + blog_id + '/posts/default?alt=json&max-results=' + max_posts;
-
-	// $(function(){
- //        ajaxGet(url + '&orderby=published', function(data){
- //            var x = listPosts(data),
- //            	y = listPagers();
- //            $('#Blog1').html(x);
- //            $('#Blog1').append(y);
-
- //        });
-	// });
-
-    
-
     
 	window.showpageCount = function(json){
 		var entry = json.feed.entry.length; //19
@@ -51,7 +36,7 @@ console.info('index.js loaded.');
         var url = feed + max_posts + '&start-index=' + cp + '&orderby=published';
 
         $(function(){
-        	ajaxGet(url, function(data){
+        	$.get(url, function(data){
 	            $('#Blog1').html(listPosts(data.feed.entry));
 	            $('#blog-pager').html(ptag);
 	        });

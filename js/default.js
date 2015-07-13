@@ -110,10 +110,10 @@ console.info('default.js loaded.');
         cpage = (cpage <= 1) ? 1 : ((cpage-1) * ipage);
 
         if(json.feed.entry){
-            $('.blog-posts.hfeed').html(listPosts(json.feed.entry));
+            $('#Blog1').html(listPosts(json.feed.entry));
             $('#blog-pager').html(ptag);
         } else {
-            $('.blog-posts.hfeed').html('<span>Sorry do not have any post !!!</span>');
+            $('#Blog1').html('<span>Sorry do not have any post !!!</span>');
             $('#blog-pager').html('');
         }
 
