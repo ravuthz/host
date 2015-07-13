@@ -49,6 +49,13 @@ console.info('default.js loaded.');
         });
         /* //Breaking News Script */
         
+        $('.btnMenu').click(function(){
+            var label = $(this).attr('rel');
+            var url = '/feeds/posts/summary/-/' + label + '?alt=json';
+            $.get(url, function(data){
+                console.log('data menu', data);
+            });
+        });
 
         $('#btnSearch').click(function(){
            keyword = $('#txtSearch').val();
