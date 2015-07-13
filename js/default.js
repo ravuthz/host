@@ -107,6 +107,9 @@ console.info('default.js loaded.');
                 if(json.feed.entry){
                     $('.blog-posts.hfeed').html(listPosts(json.feed.entry));
                     $('#blog-pager').html(ptag);
+                } else {
+                    $('.blog-posts.hfeed').html('Search not found');
+                    $('#blog-pager').html('');
                 }
                 
 
