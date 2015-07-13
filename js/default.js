@@ -57,9 +57,7 @@ console.info('default.js loaded.');
                 $('.blog-posts.hfeed').html(listPosts(data));
                 console.log('data search : ', data);
                 
-                // tpost = Math.ceil(parseInt(tpost) / max_posts);
-               
-
+               search(data, cpage);
             });
         });
 
@@ -82,33 +80,40 @@ console.info('default.js loaded.');
         
     }); /* //document ready */
 
-    window.search = function(cpage, tpost) {
-        var cp = parseInt(cpage),
-            tp = parseInt(tpost);
+    window.search = function(json, current_page) {
+        var tposts = json.feed.openSearch$totalResults.$t; // total posts
+        var ipage = json.feed.openSearch$itemsPerPage.$t;  //9
+        var cpage = current_page ? parseInt(current_page) : 1;
+        var tpages = Math.ceil(tposts / ppage);
+        
 
         var ptag = '<div class="showpageArea">';
-        ptag += '<span class="showpageOf">Pages(' + tp + ')</span>';
-        for(var p=1; p<=tp; p++){
-            if(cp == p){
-                ptag += '<span class="showpagePoint"><a href="javascript:" onclick="search(' + p + ',' + tp + ');">' + p + '</a></span>';
+        ptag += '<span class="showpageOf">Pages(' + tpages + ')</span>';
+        for(var page = 1; p <= tpages; page++){
+            if(cpage == page){
+                ptag += '<span class="showpagePoint"><a href="javascript:" onclick="search(' + page + ',' + json + ');">' + page + '</a></span>';
             } else {
-                ptag += '<span class="showpageNum"><a href="javascript:" onclick="search(' + p + ',' + tp + ');">' + p + '</a></span>';
+                ptag += '<span class="showpageNum"><a href="javascript:" onclick="search(' + page + ',' + json. + ');">' + page + '</a></span>';
             }
         }
         ptag += '</div>';
 
-        cp = (cp <= 1) ? 1 : ((cp-1) * max_posts);
+        cpage = (cpage <= 1) ? 1 : ((cpage-1) * ipage);
 
-        var url = '/feeds/posts/default?q=' + keyword + '&alt=json&max-results=9999&start-index=' + cp + '&orderby=published';
+        // var url = '/feeds/posts/default?q=' + keyword + '&alt=json&max-results=9999&start-index=' + cpage + '&orderby=published';
 
         $(function(){
-            ajaxGet(url, function(data){
-                $('.blog-posts.hfeed').html(listPosts(data));
-                $('#blog-pager').html(ptag);
-            });
-        });
+            // $.get(url, function(data){
+                if(json.feed.entry){
+                    $('.blog-posts.hfeed').html(listPosts(data));
+                    $('#blog-pager').html(ptag);
+                }
+                
 
-        console.info('search page : ', cp);
+            // });
+        });
+        
+        console.info('search page : ', cpage);
     }
 
 

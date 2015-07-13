@@ -213,10 +213,10 @@ function printRelatedLabels_thumbs() {
         });
     };
 
-    window.listPosts = function(json, selector) {
+    window.listPosts = function(entry, selector) {
         var tags = [],
             post = {},
-            posts = json.feed.entry || [];
+            posts = entry || [];
 
         for (var i = 0; i < posts.length; i++) {
             var post = posts[i];

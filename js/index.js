@@ -52,7 +52,7 @@ console.info('index.js loaded.');
 
         $(function(){
         	ajaxGet(url, function(data){
-	            $('.blog-posts.hfeed').html(listPosts(data));
+	            $('.blog-posts.hfeed').html(listPosts(data.feed.entry));
 	            $('#blog-pager').html(ptag);
 	        });
         });
