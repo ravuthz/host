@@ -93,7 +93,7 @@ console.info('default.js loaded.');
             if(cpage == page){
                 ptag += '<span class="showpagePoint"><a href="javascript:" onclick="search(' + page + ',' + json + ');">' + page + '</a></span>';
             } else {
-                ptag += '<span class="showpageNum"><a href="javascript:" onclick="search(' + page + ',' + json. + ');">' + page + '</a></span>';
+                ptag += '<span class="showpageNum"><a href="javascript:" onclick="search(' + page + ',' + json + ');">' + page + '</a></span>';
             }
         }
         ptag += '</div>';
