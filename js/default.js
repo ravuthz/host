@@ -111,7 +111,7 @@ console.info('default.js loaded.');
 
         // var url = '/feeds/posts/default?q=' + keyword + '&alt=json&max-results=9999&start-index=' + cpage + '&orderby=published';
 
-        $(function(){
+        // $(function(){
             // $.get(url, function(data){
                 if(json.feed.entry){
                     $('.blog-posts.hfeed').html(listPosts(json.feed.entry));
@@ -123,7 +123,7 @@ console.info('default.js loaded.');
                 
 
             // });
-        });
+        // });
         
         console.info('search page : ', cpage);
     }
