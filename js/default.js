@@ -5,7 +5,7 @@ console.info('default.js loaded.');
         break_news_posts = 40,
         cpage = 1;
 
-    var url, feed = '/feeds/posts/default?alt=json&max-results=';
+    var url, keyword, feed = '/feeds/posts/default?alt=json&max-results=';
 
     $(function(){
         $('#adajaxmenu .menu a').on('click', function(){
@@ -51,10 +51,14 @@ console.info('default.js loaded.');
         
 
         $('#btnSearch').click(function(){
-            // var url = '/search?q=' + $('#txtSearch').val();
-            var url = '/feeds/posts/default?q=' + $('#txtSearch').val() + '&alt=json&max-results=' + max_posts + '&start-index=' + cpage + '&orderby=published';
+           keyword = $('#txtSearch').val();
+            var url = '/feeds/posts/default?q=' + keyword + '&alt=json&max-results=' + max_posts + '&start-index=' + cpage + '&orderby=published';
             $.get(url, function(data){
                 $('.blog-posts.hfeed').html(listPosts(data));
+                console.log('data search : ', data);
+                
+                // tpost = Math.ceil(parseInt(tpost) / max_posts);
+               
 
             });
         });
