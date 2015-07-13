@@ -51,7 +51,7 @@ console.info('default.js loaded.');
         
         $('.btnMenu').click(function(){
             var label = $(this).attr('rel');
-            var url = '/feeds/posts/summary/-/' + label + '&alt=json&max-results=' + max_posts + '&start-index=' + cpage + '&orderby=published'
+            var url = '/feeds/posts/summary/-/' + label + '?alt=json&max-results=' + max_posts + '&start-index=' + cpage + '&orderby=published'
             $.get(url, function(data){
                 console.log('data menu', data);
             });
