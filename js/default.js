@@ -109,22 +109,14 @@ console.info('default.js loaded.');
 
         cpage = (cpage <= 1) ? 1 : ((cpage-1) * ipage);
 
-        // var url = '/feeds/posts/default?q=' + keyword + '&alt=json&max-results=9999&start-index=' + cpage + '&orderby=published';
+        if(json.feed.entry){
+            $('.blog-posts.hfeed').html(listPosts(json.feed.entry));
+            $('#blog-pager').html(ptag);
+        } else {
+            $('.blog-posts.hfeed').html('<span>Sorry do not have any post !!!</span>');
+            $('#blog-pager').html('');
+        }
 
-        // $(function(){
-            // $.get(url, function(data){
-                if(json.feed.entry){
-                    $('.blog-posts.hfeed').html(listPosts(json.feed.entry));
-                    $('#blog-pager').html(ptag);
-                } else {
-                    $('.blog-posts.hfeed').html('Search not found');
-                    $('#blog-pager').html('');
-                }
-                
-
-            // });
-        // });
-        
         console.info('search page : ', cpage);
     }
 
