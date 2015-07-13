@@ -54,6 +54,8 @@ console.info('default.js loaded.');
             var url = '/feeds/posts/summary/-/' + label + '?alt=json&max-results=' + max_posts + '&start-index=' + cpage + '&orderby=published'
             $.get(url, function(data){
                 console.log('data menu', data);
+                $('.blog-posts.hfeed').html(listPosts(data.feed.entry));
+                search(data, cpage);
             });
         });
 
