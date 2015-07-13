@@ -99,8 +99,6 @@ console.info('index.js loaded.');
             blogid = id.substring(blogIndex + 5, id.length - (postIndex - 1));
             postid = id.substring(postIndex + 5, id.length);
 
-            // console.log('blog id ' + blogid);
-            // console.log('post id ' + postid);
             return postid; //;[blogid,postid];
         }
         return [];
