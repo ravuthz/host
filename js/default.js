@@ -105,7 +105,7 @@ console.info('default.js loaded.');
         $(function(){
             // $.get(url, function(data){
                 if(json.feed.entry){
-                    $('.blog-posts.hfeed').html(listPosts(data));
+                    $('.blog-posts.hfeed').html(listPosts(json.feed.entry));
                     $('#blog-pager').html(ptag);
                 }
                 
