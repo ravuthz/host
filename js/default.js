@@ -89,7 +89,7 @@ console.info('default.js loaded.');
 
         var ptag = '<div class="showpageArea">';
         ptag += '<span class="showpageOf">Pages(' + tpages + ')</span>';
-        for(var page = 1; p <= tpages; page++){
+        for(var page = 1; page <= tpages; page++){
             if(cpage == page){
                 ptag += '<span class="showpagePoint"><a href="javascript:" onclick="search(' + page + ',' + json + ');">' + page + '</a></span>';
             } else {
