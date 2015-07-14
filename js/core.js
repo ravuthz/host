@@ -16,7 +16,6 @@
 	    }
 });*/
 
-
 function BlogPost(prop, callBlog) {
     var maxpost = prop.maxpost,
         numpost = prop.numpost,
@@ -55,15 +54,15 @@ query({
 
 
 function query(prop, callback) {
-    var url = 'https://www.blogger.com/feeds/5615873936899142487/posts/default',
-        // var url = '/feeds/posts/default',
+    // var url = 'https://www.blogger.com/feeds/5615873936899142487/posts/default',
+        var url = '/feeds/posts/default',
         max = prop.maxpost || 9,
         key = prop.keyword || '',
         idx = prop.stindex || 1;
     if (key) {
-        url += '?q="' + key + '"&alt=json-in-script&max-results=' + max;
+        url += '?q="' + key + '"&alt=json&max-results=' + max;
     } else {
-        url += '?alt=json-in-script&max-results=' + max;
+        url += '?alt=json&max-results=' + max;
     }
     url += '&start-index=' + idx + '&orderby=published';  //+'&callback=postss';
     console.log(url);
