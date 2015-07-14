@@ -8,6 +8,8 @@ console.info('default.js loaded.');
     var url, keyword, feed = '/feeds/posts/default?alt=json&max-results=';
 
     $(function(){
+        $('.video-container').fitVids();
+
         $('#adajaxmenu .menu a').on('click', function(){
             $('#adajaxmenu li:not(.menu)').slideToggle('slow');
         });
