@@ -172,9 +172,7 @@ window.page = function(cpage, tpost) {
         console.info('page : ', cp);
 }
 
-window.listPosts = function(entry) {
-    if(!entry || entry.length >= 0) return false;
-    
+window.listPosts = function(entry) {    
     var tags = [], post = {}, posts = entry;
 
     tags.push('<div class="blog-posts hfeed">');
