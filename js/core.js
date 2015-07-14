@@ -45,6 +45,8 @@ query({
         allpost: data.feed.entry,
         callBlog: function(posts, pages) {
 			console.log(posts);
+			listPosts(posts);
+			page(1, pages);
         }
     });
 });
@@ -165,39 +167,39 @@ window.page = function(cpage, tpost) {
         });
 
         console.info('page : ', cp);
-    }
+}
 
-    window.listPosts = function(entry) {
-        if(!entry || entry.length >= 0) return false;
+window.listPosts = function(entry) {
+    if(!entry || entry.length >= 0) return false;
+    
+    var tags = [], post = {}, posts = entry;
+
+    tags.push('<div class="blog-posts hfeed">');
+    for (var i = 0; i < posts.length; i++) {
+        var post = posts[i];
+
+        var id 		= getId(post),
+            links	= getLink(post),
+            date 	= getDate(post),
+            title 	= getTitle(post, 22),
+            image 	= getImage(post),
+            comment = getComment(post),
+            content = getContent(post);
         
-        var tags = [], post = {}, posts = entry;
+        tags.push('<div class="post hentry"><div class="post-body entry-content">');
+        tags.push('<div class="body-post"><span id="', id, '">');
 
-        tags.push('<div class="blog-posts hfeed">');
-        for (var i = 0; i < posts.length; i++) {
-            var post = posts[i];
-
-            var id 		= getId(post),
-                links	= getLink(post),
-                date 	= getDate(post),
-                title 	= getTitle(post, 22),
-                image 	= getImage(post),
-                comment = getComment(post),
-                content = getContent(post);
-            
-            tags.push('<div class="post hentry"><div class="post-body entry-content">');
-            tags.push('<div class="body-post"><span id="', id, '">');
-
-            tags.push('<div class="entry-image"><a href="', link, '">');
-            tags.push('<img class="thumb" src="', image, '"/></a></div>');
-            tags.push('<div class="post-comments"><span><i class="fa fa-comments-o"></i>', comment, '</span></div>');
-            tags.push('<div class="post-meta date">', date, '</div>');
-            tags.push('<h2 class="index-title">', '<a href="', link, '">', title, '</a></h2>');
-            tags.push('<div class="entry-container"><p>', content, '</p></div></span>');
-            tags.push('</span></div></div></div>');
-            
-        }
-        tags.push('</div>');
-        tags.push('<div class="clearfix" id="blog-pager"></div>');
-        tags.push('<script type="text/javascript">window.___gcfg = {"lang": "en"};</script>');
-        return tags.join("");
-    };
+        tags.push('<div class="entry-image"><a href="', link, '">');
+        tags.push('<img class="thumb" src="', image, '"/></a></div>');
+        tags.push('<div class="post-comments"><span><i class="fa fa-comments-o"></i>', comment, '</span></div>');
+        tags.push('<div class="post-meta date">', date, '</div>');
+        tags.push('<h2 class="index-title">', '<a href="', link, '">', title, '</a></h2>');
+        tags.push('<div class="entry-container"><p>', content, '</p></div></span>');
+        tags.push('</span></div></div></div>');
+        
+    }
+    tags.push('</div>');
+    tags.push('<div class="clearfix" id="blog-pager"></div>');
+    tags.push('<script type="text/javascript">window.___gcfg = {"lang": "en"};</script>');
+    return tags.join("");
+};
