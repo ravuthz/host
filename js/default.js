@@ -59,8 +59,20 @@ console.info('default.js loaded.');
             });
         });
 
-        $('#btnSearch').click(function(){
-           keyword = $('#txtSearch').val();
+        // $('#btnSearch').click(function(){
+        //    keyword = $('#txtSearch').val();
+        //     var url = '/feeds/posts/default?q=' + keyword + '&alt=json&max-results=' + max_posts + '&start-index=' + cpage + '&orderby=published';
+        //     $.get(url, function(data){
+        //         $('#Blog1').html(listPosts(data));
+        //         console.log('data search : ', data);
+                
+        //        search(data, cpage);
+        //     });
+        // });
+
+        $("#frmSearch").submit(function(e){
+            e.preventDefault();
+            keyword = $('#txtSearch').val();
             var url = '/feeds/posts/default?q=' + keyword + '&alt=json&max-results=' + max_posts + '&start-index=' + cpage + '&orderby=published';
             $.get(url, function(data){
                 $('#Blog1').html(listPosts(data));
@@ -69,8 +81,6 @@ console.info('default.js loaded.');
                search(data, cpage);
             });
         });
-
-
 
         /* BackToTop button */
         $("a#back-to-top").click(function(){
