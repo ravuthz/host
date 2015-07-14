@@ -1192,3 +1192,12 @@ body > div.header-wrapper > div > div.banner {
     left: 0;
     top: 0;
 }
+
+/* facebook responsive */
+#fb-root {
+  display: none;
+}
+
+.fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
+  width: 100% !important;
+}
