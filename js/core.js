@@ -33,10 +33,11 @@ function BlogPost(prop, callBlog) {
 }
 
 var maxpost = 9,
-		cpage = 1,
-        showpage = 2;
+	cpage = 1,
+    showpage = 2,
+    keyword = '';
 
-    var url, feed = '/feeds/posts/default?alt=json&max-results=';
+var url, feed = '/feeds/posts/default?alt=json&max-results=';
 
 query({
     maxpost: maxpost,
@@ -53,7 +54,6 @@ query({
         }
     });
 });
-
 
 function query(prop, callback) {
     // var url = 'https://www.blogger.com/feeds/5615873936899142487/posts/default',
