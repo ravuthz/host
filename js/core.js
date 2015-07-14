@@ -81,6 +81,23 @@ window.getLink = function(entry){
     }
 };
 
+window.getId = function(entry) {
+        // "tag:blogger.com,1999:blog-5615873936899142487.post-118256394100900487"
+        var id = entry.id.$t;
+        var blogIndex = id.indexOf("blog-"), //5
+            postIndex = id.indexOf("post-"); //5
+
+        if (blogIndex != -1 && postIndex != -1) {
+            blogid = id.substring(blogIndex + 5, id.length - (postIndex - 1));
+            postid = id.substring(postIndex + 5, id.length);
+
+            // console.log('blog id ' + blogid);
+            // console.log('post id ' + postid);
+            return postid; //;[blogid,postid];
+        }
+        return [];
+    };
+
 window.getComment = function(entry){
     return ('thr$total' in entry) ? entry.thr$total.$t : '';
 };
