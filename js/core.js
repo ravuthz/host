@@ -49,7 +49,7 @@ query({
         allpost: data.feed.entry,
         callBlog: function(posts, pages) {
 			console.log(posts);
-			listPosts(posts);
+			$('#Blog1').html(listPosts(posts));
 			page(1, pages);
         }
     });
