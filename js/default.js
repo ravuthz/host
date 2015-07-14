@@ -13,6 +13,9 @@ console.info('default.js loaded.');
         $('#adajaxmenu .menu a').on('click', function(){
             $('#adajaxmenu li:not(.menu)').slideToggle('slow');
         });
+    });
+
+    $(function(){
  // var url = url_blog + '/feeds/posts/default?alt=json&max-results=' + numpostx + '&orderby=published';
         // /feeds/posts/summary?alt=json-in-script&amp;callback=showpageCount&amp;max-results=99999
     
