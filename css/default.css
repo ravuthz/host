@@ -383,6 +383,7 @@ h2.index-title {
 
 h2.index-title a {
     color: #444;
+    font-size: 20px;
     font-weight: 600;
 }
 
@@ -1116,7 +1117,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Droid Sans', Arial;
     font-weight: 700;
 }
-p, span, label {
+p, span, label, a {
     font-family: 'PT Sans Narrow', Tahoma;
     font-weight: 400;
 }
