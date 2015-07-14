@@ -1114,8 +1114,12 @@ body > div.header-wrapper > div > div.banner {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Droid Sans', Arial;
+    font-weight: 700;
 }
-
+p, span, label {
+    font-family: 'PT Sans Narrow', Tahoma;
+    font-weight: 400;
+}
 
 /* my popup */
 
