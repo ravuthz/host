@@ -32,9 +32,11 @@ function BlogPost(prop, callBlog) {
 
 }
 
-var maxpost = 9,
-    keyword = '',
-    show_page = 3;
+var maxposts = 9,
+		cpage = 1,
+        show_page = 2;
+
+    var url, feed = '/feeds/posts/default?alt=json&max-results=';
 
 query({
     maxpost: maxpost,
