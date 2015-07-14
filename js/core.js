@@ -44,10 +44,7 @@ query({
         numpost: data.feed.openSearch$totalResults.$t,
         allpost: data.feed.entry,
         callBlog: function(posts, pages) {
-                        console.log(posts);
-            console.log('posts : ', formatComment(posts[0]));
-            console.log('posts : ', posts[0].content.$t);
-            //             console.log('pages : ', pages);
+			console.log(posts);
         }
     });
 });
