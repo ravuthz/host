@@ -33,7 +33,8 @@ function BlogPost(prop, callBlog) {
 }
 
 var maxpost = 9,
-    keyword = '';
+    keyword = '',
+    show_page = 3;
 
 query({
     maxpost: maxpost,
