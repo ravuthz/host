@@ -32,9 +32,9 @@ function BlogPost(prop, callBlog) {
 
 }
 
-var maxposts = 9,
+var maxpost = 9,
 		cpage = 1,
-        show_page = 2;
+        showpage = 2;
 
     var url, feed = '/feeds/posts/default?alt=json&max-results=';
 
@@ -149,18 +149,18 @@ window.page = function(cpage, tpost) {
         	if(cp == p){
         		ptag += '<span class="showpagePoint"><a href="javascript:" onclick="page(' + p + ',' + tp + ');">' + p + '</a></span>';
         	} else {
-        		if(p >= show_page){
+        		if(p >= showpage){
                     ptag += '<span class="hidepageNum"><a href="javascript:" onclick="page(' + p + ',' + tp + ');">' + p + '</a></span>';    
-                } else if (p < show_page) {
+                } else if (p < showpage) {
                     ptag += '<span class="showpageNum"><a href="javascript:" onclick="page(' + p + ',' + tp + ');">' + p + '</a></span>';    
                 }
         	}
         }
         ptag += '</div>';
 
-        cp = (cp <= 1) ? 1 : ((cp-1) * max_posts);
+        cp = (cp <= 1) ? 1 : ((cp-1) * maxpost);
 
-        var url = feed + max_posts + '&start-index=' + cp + '&orderby=published';
+        var url = feed + maxpost + '&start-index=' + cp + '&orderby=published';
 
         $(function(){
         	$.get(url, function(data){

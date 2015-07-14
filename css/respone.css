@@ -92,10 +92,10 @@ Responsive styles
         background-color: #33363B;
     }
     #adajaxmenu li {
-        display: none;
+        display: none !important;
     }
     #adajaxmenu .menu {
-        display: block;
+        display: block !important;
     }
     #adajaxmenu li.search-form {
        margin: 0;
@@ -103,6 +103,7 @@ Responsive styles
     }
 
     li.search-form .searchbar {
+        text-align: center;
         width: 90% !important;
     }
 
