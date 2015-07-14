@@ -102,7 +102,7 @@ window.getComment = function(entry){
     return ('thr$total' in entry) ? entry.thr$total.$t : '';
 };
 
-window.getText = function(entry, max) {
+window.getTitle = function(entry, max) {
     var txt = (entry.title.type == 'html') ? entry.title.$t : escape(entry.title.$t);
     return txt.length >= max ? txt.substring(0, max) + ' ... ' : txt;
 };
