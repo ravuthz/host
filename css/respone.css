@@ -26,12 +26,21 @@ Responsive styles
 #adajaxmenu li:not(.menu) {
     display: block;
 }
+
+.footer-frame {
+    height: 290px;
+    width: 100%;
+}
+
 @media screen and (max-width: 1260px) {
     #content {
         width: 68%;
     }
     .sidebar-wrapper {
         width: 32%;
+    }
+    .footer-frame {
+        height: 360px;
     }
 }
 
@@ -134,6 +143,8 @@ Responsive styles
     #content {
         width: 100%;
     }
+    
+    
 
     /*     .header-inner-wrap {
         float: none
