@@ -197,7 +197,7 @@ window.listPosts = function(entry) {
         var post = posts[i];
 
         var id 		= getId(post),
-            links	= getLink(post),
+            link	= getLink(post),
             date 	= getDate(post),
             title 	= getTitle(post, 22),
             image 	= getImage(post),
