@@ -94,6 +94,21 @@ Responsive styles
     #adajaxmenu li {
         display: none;
     }
+    #adajaxmenu .menu {
+        display: block;
+    }
+    #adajaxmenu li.search-form {
+       margin: 0;
+       text-align: center;
+    }
+
+    li.search-form .searchbar {
+        width: 90% !important;
+    }
+
+    li.search-form .searchsubmit {
+        display: none;
+    }
     #adajaxmenu li a {
         text-align: center;
     }

@@ -26,9 +26,9 @@ console.info('index.js loaded.');
         	if(cp == p){
         		ptag += '<span class="showpagePoint"><a href="javascript:" onclick="page(' + p + ',' + tp + ');">' + p + '</a></span>';
         	} else {
-        		if(p >= show_page){
+        		if(p >= show_page){c
                     ptag += '<span class="hidepageNum"><a href="javascript:" onclick="page(' + p + ',' + tp + ');">' + p + '</a></span>';    
-                } else {
+                } else if (p < show_page) {
                     ptag += '<span class="showpageNum"><a href="javascript:" onclick="page(' + p + ',' + tp + ');">' + p + '</a></span>';    
                 }
         	}
@@ -94,6 +94,12 @@ console.info('index.js loaded.');
         return (entry.title.type == 'html') ? entry.title.$t : escape(entry.title.$t);
     }
 
+    window.formatText = function(entry, max){
+        if(!entry || entry.length >= 0) return false;
+        var text = (entry.title.type == 'html') ? entry.title.$t : escape(entry.title.$t);
+        return text.length >= max ? text.substring(0, max) + ' ... ' : text;
+    };
+
     window.formatId = function(id) {
         // "tag:blogger.com,1999:blog-5615873936899142487.post-118256394100900487"
         var blogIndex = id.indexOf("blog-"), //5
@@ -120,17 +126,7 @@ console.info('index.js loaded.');
         return defaultImage;
     };
 
-    window.formatDate = function(dat, fmt) {
-        var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-        var dt;
-
-        if (fmt) {
-            dt = new Date(dat);
-            return dt.toLocaleDateString(fmt);
-        }
-        dt = dat.substring(0, 10); /* 2014-11-30T18:31:00.001+07:00 */
-        return months[dt.substring(5, 7) - 1] + ', ' + dt.substring(8, 10) + ' ,' + dt.substring(0, 4);
-    };
+    
 
 })(jQuery, window);
 
