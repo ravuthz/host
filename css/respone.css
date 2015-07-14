@@ -101,10 +101,10 @@ Responsive styles
         background-color: #33363B;
     }
     #adajaxmenu li {
-        display: none !important;
+        display: none;
     }
     #adajaxmenu .menu {
-        display: block !important;
+        display: block;
     }
     #adajaxmenu li.search-form {
        margin: 0;
