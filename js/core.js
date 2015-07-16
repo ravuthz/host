@@ -1,20 +1,3 @@
-/*var $form = $("#myForm");
-    var url = $form.attr("action") + "?" + $form.serialize();
-    $("#" + id).html(url);
-	$.ajax({
-	    type: "POST",
-	    url: action,
-	    data: $form,
-	    success: function(response)
-	    {
-	        if(response == 'success')
-	            $("#myForm").slideUp('slow', function() {
-	                $("#msg").html("<p class='success'>You have logged in successfully!</p>");
-	            });
-	        else
-	            $("#msg").html("<p class='error'>Invalid username and/or password.</p>");
-	    }
-});*/
 
 function BlogPost(prop, callBlog) {
     var maxpost = prop.maxpost,
@@ -90,9 +73,6 @@ window.getId = function(entry) {
     if (blogIndex != -1 && postIndex != -1) {
         blogid = id.substring(blogIndex + 5, id.length - (postIndex - 1));
         postid = id.substring(postIndex + 5, id.length);
-
-        // console.log('blog id ' + blogid);
-        // console.log('post id ' + postid);
         return postid; //;[blogid,postid];
     }
     return [];
